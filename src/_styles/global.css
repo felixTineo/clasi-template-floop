@@ -1,0 +1,29 @@
+html{
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Open Sans";
+  font-weight: 400;
+  color: #4E4B46;
+  background-color: #F2F2F2;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: "Open sans";
+}
+
+button{
+  font-size: 18px;
+  outline: none !important;
+}
+
+a:visited{
+  color: #333 !important;
+}
