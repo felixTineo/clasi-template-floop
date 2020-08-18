@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { data } from '../data-test';
+import data from '../_context/state';
 import OfficeContext from '../_context/office-context';
 import styled, { ThemeProvider } from 'styled-components';
 import Header from './header';
@@ -21,14 +21,14 @@ const Body = styled.div`
 export default ({ children })=> {
 
   useEffect(()=>{
-    const favicon = document.getElementById('favicon');
+    /*const favicon = document.getElementById('favicon');
     document.title = data.webOffice.office.title;
-    favicon.href = data.webOffice.office.favicon;
+    favicon.href = data.webOffice.office.favicon;*/
   },[])
-
+  console.log("DATA", data);
   return(
     <OfficeContext.Provider value={data}>
-      <ThemeProvider theme={data.webOffice.theme}>
+      <ThemeProvider theme={data}>
         <Layout>
           <Header />
           <Body>

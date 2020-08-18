@@ -34,7 +34,7 @@ const PrevArrow = styled.div`
   transition: 250ms ease;
   
   &:hover{
-    background-color: ${props => hexToHsl(props.theme.primaryColor, 58)};
+    background-color: ${props => hexToHsl(props.theme.main.primaryColor, 58)};
   }
   &::before{
     
@@ -61,7 +61,7 @@ const NextArrow = styled.div`
   transition: 250ms ease;
   
   &:hover{
-    background-color: ${props => hexToHsl(props.theme.primaryColor, 58)};
+    background-color: ${props => hexToHsl(props.theme.main.primaryColor, 58)};
   }
   &::before{
     
@@ -72,7 +72,7 @@ const DotsCont = styled.ul`
   height: 2rem;
   display: flex;
   justify-content: center;
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.main.primaryColor};
 `
 const settings = {
   infinite: true,

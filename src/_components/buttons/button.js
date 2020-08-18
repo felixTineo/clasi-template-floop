@@ -6,9 +6,9 @@ const handleBackground = (props) => {
     return 'transparent';
   } else {
     if(props.primary){
-      return props.theme.primaryColor;
+      return props.theme.main.primaryColor;
     } else{
-      return props.theme.secondaryColor;
+      return props.theme.main.secondaryColor;
     }
   }
 }
@@ -16,9 +16,9 @@ const handleBackground = (props) => {
 const handleColor = props => {
   if(props.outlined){
     if(props.primary){
-      return props.theme.primaryColor;
+      return props.theme.main.primaryColor;
     } else {
-      return props.theme.secondaryColor;
+      return props.theme.main.secondaryColor;
     }
   } else {
     if(props.primary){
@@ -36,19 +36,19 @@ export default styled.button`
   width: ${props => props.block && '100%'};
   min-width: 9rem;
   border-style: solid;
-  border-radius: 25px;
-  border-color: ${props => props.primary ? props.theme.primaryColor : props.theme.secondaryColor};
+  border-radius: ${props => props.noRound ? '0' : '25px'};
+  border-color: ${props => props.primary ? props.theme.main.primaryColor : props.theme.main.secondaryColor};
   transition: background 250ms ease;
   cursor: pointer;
   outline: none !important;
   color: ${props => handleColor(props)};
   &:hover{
     color: ${props => props.primary ? '#fff' : '#212121'};
-    background-color: ${props => props.primary ? hexToHsl(props.theme.primaryColor, 58) : props.theme.secondaryColor};
-    border-color: ${props => props.primary ? hexToHsl(props.theme.primaryColor, 58) : hexToHsl(props.theme.secondaryColor, 97)};
+    background-color: ${props => props.primary ? hexToHsl(props.theme.main.primaryColor, 58) : props.theme.main.secondaryColor};
+    border-color: ${props => props.primary ? hexToHsl(props.theme.main.primaryColor, 58) : hexToHsl(props.theme.main.secondaryColor, 97)};
   }
   &:active{
-    background-color: ${props => props.primary ? hexToHsl(props.theme.primaryColor, 48) : hexToHsl(props.theme.secondaryColor, 97)}
+    background-color: ${props => props.primary ? hexToHsl(props.theme.main.primaryColor, 48) : hexToHsl(props.theme.main.secondaryColor, 97)}
   }
   &:disabled{
     background-color: #cfcfcf;

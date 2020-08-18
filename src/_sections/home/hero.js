@@ -10,7 +10,7 @@ const HeroCont = styled.div`
   position: relative;
   height: calc(100vh - 67px);
   overflow: hidden;
-  color: ${props => props.theme.secondaryColor};
+  color: ${props => props.theme.main.secondaryColor};
   @media(min-width: 768px){
     height: calc(100vh - 89px);
   }  
@@ -19,7 +19,7 @@ const HeroImg = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url(${props => props.theme.heroUrl});
+  background-image: url(${props => props.theme.home.hero.background});
   width: 100%;
   height: 100%;
   &::after{
@@ -65,7 +65,7 @@ const SearchForm = styled.form`
 `
 
 export default ()=> {
-  const hero = useContext(OfficeContext).webOffice.home.hero;
+  const hero = useContext(OfficeContext).home.hero;
   const size = useWindowSize();
 
   return(

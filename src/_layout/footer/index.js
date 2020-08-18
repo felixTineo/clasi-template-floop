@@ -11,8 +11,8 @@ const MainFooter = styled.div`
   padding: 4rem 0;
 `
 const FooterRightsCont = styled.div`
-  background-color: ${props => props.theme.primaryColor};
-  color: ${props => props.theme.secondaryColor};
+  background-color: ${props => props.theme.main.primaryColor};
+  color: ${props => props.theme.main.secondaryColor};
   padding: 2rem 0;
   @media(min-width: 768px){
     padding: .5rem 0;
@@ -57,24 +57,24 @@ const NavLink = styled.a`
     text-align: center;
   }
   &:hover{
-    color: ${props => props.theme.primaryColor} !important;
+    color: ${props => props.theme.main.primaryColor} !important;
   }
   &:visited{
     color: #212121;
   }
 `
 const SvgIcon = styled.svg`
-  fill: ${props => props.theme.primaryColor};
+  fill: ${props => props.theme.main.primaryColor};
   margin-right: .5rem;
   ${Button}:hover & {
-    fill: ${props => props.theme.secondaryColor};
+    fill: ${props => props.theme.main.secondaryColor};
   }
 `
 const SocialNav = styled.ul`
   padding: 0;
   margin: 0;
   list-style: none;
-  //color: ${props => props.theme.primaryColor};
+  //color: ${props => props.theme.main.primaryColor};
   display: flex;
   align-content: center;
   margin-bottom: 1rem;
@@ -85,7 +85,7 @@ const SocialItem = styled.li`
 `
 
 export default ()=> {
-  const office = useContext(OfficeContext).webOffice.office;
+  const office = useContext(OfficeContext).office;
   return(
     <Footer>
       <MainFooter>

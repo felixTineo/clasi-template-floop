@@ -38,7 +38,7 @@ const FooterSection = styled.footer`
 `
 
 export default ()=> {
-  const properties = useContext(OfficeContext).webOffice.home.properties.propertyList;
+  const properties = useContext(OfficeContext).home.properties.items;
   console.log(properties);
   return(
     <Fragment>

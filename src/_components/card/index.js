@@ -3,3 +3,4 @@ export { default as ImageCardCarousel } from './image-card-carousel';
 export { default as TextCard } from './text-card';
 export { default as TextCardCarousel } from './text-card-carousel';
 export { default as QuoteCardCarousel } from './quote-card-carousel';
+export { default as DescriptionCarousel } from './description-card-carousel';

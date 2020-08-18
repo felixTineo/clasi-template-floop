@@ -27,7 +27,7 @@ const User = styled.p`
   margin: 5rem 0;
 `
 const MarkQuote = styled.svg`
-  fill: ${props => props.theme.primaryColor};
+  fill: ${props => props.theme.main.primaryColor};
   width: 2rem;
   flex-shrink: 1;
   flex-grow: 0;
@@ -37,7 +37,7 @@ const MarkQuote = styled.svg`
   
 `
 
-export default ({ p, client })=> {
+export default ({ review, author })=> {
 
   return(
     <CardQuote>
@@ -46,10 +46,10 @@ export default ({ p, client })=> {
       </MarkQuote>
       <ReviewCont>
       <Review>
-        {p}
+        {review}
       </Review>
       <User>
-        {client}
+        {author}
       </User>
       </ReviewCont>
       <MarkQuote width="64" height="49" fill="none" version="1.1" viewBox="0 0 64 49" xmlns="http://www.w3.org/2000/svg">

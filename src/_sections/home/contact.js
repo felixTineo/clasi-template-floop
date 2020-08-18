@@ -17,7 +17,7 @@ const SectionText = styled.p`
 `
 
 export default ()=> {
-  const sectionText = useContext(OfficeContext).webOffice.home.contact.p;
+  const sectionText = useContext(OfficeContext).home.contact.title;
   return(
     <SectionCont>
       <Container>

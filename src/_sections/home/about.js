@@ -71,7 +71,7 @@ const ButtonCont = styled.div`
 
 const ServiceImage = styled.div`
   position: relative;
-  background-image: url(${props => props.theme.serviceUrl});
+  background-image: url(${props => props.theme.home.about.banner.image});
   background-position: center;
   background-size: cover;
   background-repeat: none;
@@ -109,8 +109,8 @@ const Strong = styled.strong`
 `
 
 export default ()=> {
-  const services = useContext(OfficeContext).webOffice.home.service;
-  const info = useContext(OfficeContext).webOffice.home.about;
+  const services = useContext(OfficeContext).home.services;
+  const info = useContext(OfficeContext).home.about.banner;
   return(
     <MainSection>
       <Container>
@@ -119,9 +119,9 @@ export default ()=> {
           <ServiceImage />
           <InfoCont>
             <Info>{info.title}</Info>
-            <SubInfo>{info.p}</SubInfo>
+            <SubInfo>{info.subTitle}</SubInfo>
             <ButtonCont>
-              <Button block outlined>Conocénos</Button>
+              <Button block outlined>{info.buttonText}</Button>
             </ButtonCont>
           </InfoCont>
         </ServiceInfo>
@@ -131,7 +131,7 @@ export default ()=> {
             Ofrecemos un <Strong>servicio profesional</Strong> a las necesidades de cada cliente
           </SubTitle>
         </SubTitleCont>
-        <TextCardCarousel items={services} />
+        <TextCardCarousel items={services.items} />
       </Container>
     </MainSection>
   )
