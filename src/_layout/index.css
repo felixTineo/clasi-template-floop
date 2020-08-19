@@ -7,3 +7,71 @@ body{
   box-sizing: border-box;
   margin: 0;
 }
+
+.clasi-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.clasi-icon path {
+  fill: #002438;
+}
+
+.clasi-icon-disabled path {
+  fill: #cad3db !important;
+}
+
+.clasi-icon-label-cont {
+  display: flex;
+  align-items: center;
+}
+
+.clasi-icon-label-cont svg {
+  margin-right: 0.4rem;
+}
+
+.customized-swiper-container{
+  position: relative !important;
+  overflow: hidden;
+}
+
+.swiper-button-next.customized-swiper-button-next {
+  height: 28px !important;
+  border-radius: 46.5px;
+}
+
+.swiper-button-next.customized-swiper-button-next,
+.swiper-button-prev.customized-swiper-button-prev {
+  top: 55% !important;
+  height: 28px !important;
+  border-radius: 46.5px;
+  background-color: hsl(208, 19%, 73%);
+}
+
+.swiper-button-next.customized-swiper-button-next:hover,
+.swiper-button-prev.customized-swiper-button-prev:hover {
+  height: 28px !important;
+  background-color: #002438;
+  border-radius: 46.5px;
+}
+
+.swiper-button-next.customized-swiper-button-next::after,
+.swiper-button-prev.customized-swiper-button-prev:after {
+  font-size: 10px !important;
+  font-weight: bold;
+  color: #fff;
+}
+
+.swiper-slide {
+  margin: 0px !important;
+}
+
+.customized-swiper-container-thumb .swiper-slide {
+  margin: 10px !important;
+}
+
+.customized-swiper-container-thumb {
+  max-width: 100% !important;
+  text-align: left !important;
+  overflow: hidden;
+}

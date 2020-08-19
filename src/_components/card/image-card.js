@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Button } from '../buttons';
 
@@ -86,9 +87,11 @@ export default ({
             ))
           }
         </CardCharacteristics>
-        <Button primary outlined block>
-          Ver
-        </Button>        
+        <Link to="/property" style={{ textDecoration: "none" }}>
+          <Button primary outlined block>
+            Ver
+          </Button>        
+        </Link>
       </CardInfo>
     </CardCont>
   )

@@ -30,11 +30,15 @@ const handleColor = props => {
 }
 
 export default styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: .8rem;
   background-color: ${props => handleBackground(props)};
-  padding: .8rem 1rem;
+  //padding: .8rem 1rem;
   width: ${props => props.block && '100%'};
   min-width: 9rem;
+  height: 47.59px;
   border-style: solid;
   border-radius: ${props => props.noRound ? '0' : '25px'};
   border-color: ${props => props.primary ? props.theme.main.primaryColor : props.theme.main.secondaryColor};
@@ -58,6 +62,6 @@ export default styled.button`
   }
   @media(min-width: 768px){
     font-size: 1rem;
-    padding: .8rem 1.5rem;
+    //padding: .8rem 1.5rem;
   }  
 `

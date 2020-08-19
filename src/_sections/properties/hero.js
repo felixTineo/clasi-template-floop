@@ -44,7 +44,7 @@ export default ()=> {
         <Container>
           <Row>
             <Col xs={12} md={3}>
-              <Input primary label="Operación" />
+              <Input primary label="Operación" id="property" />
             </Col>
             <Col xs={12} md={3}>
               <Select primary default="Propiedad" options={["option A", "option B", "option C"]} />

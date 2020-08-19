@@ -89,7 +89,7 @@ export default ()=> {
           <SearchForm>
             <Row>
               <Col xs={12} md={3}>
-                <Input label="Operación" />
+                <Input label="Operación" id="operation" />
               </Col>
               <Col xs={12} md={3}>
                 <Select default="Propiedad" options={["option A", "option B", "option C"]} />

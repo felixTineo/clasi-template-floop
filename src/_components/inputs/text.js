@@ -6,8 +6,8 @@ import { gsap } from 'gsap';
 const Label = styled.label`
   border-bottom-style: solid;
   border-bottom-width: 3px;
-  border-bottom-color: ${props => props.primary ? props.theme.main.primaryColor : props.theme.main.secondaryColor};
-  color: ${props => props.primary ? props.theme.main.primaryColor : props.theme.main.secondaryColor};
+  border-bottom-color: ${props => props.primary ? props.theme.main.primaryColor : props.gray ? "#dadada" : props.theme.main.secondaryColor};
+  color: ${props => props.primary ? props.theme.main.primaryColor : props.gray ? "#a1a1a1" : props.theme.main.secondaryColor};
   display: flex;
   flex-direction: column;
   position: relative;
@@ -28,7 +28,7 @@ const Input = styled.input`
   outline: none;
   font-size: 1rem;
   padding: 0 0 .6rem .3rem;
-  color: ${props => props.primary ? props.theme.main.primaryColor : props.theme.main.secondaryColor};
+  color: ${props => props.primary ? props.theme.main.primaryColor : props.gray ? "#4E4B46" : props.theme.main.secondaryColor};
 `
 
 export default (props)=> {
@@ -41,19 +41,19 @@ export default (props)=> {
     }
   }
 
-  const onFocus = ()=> {
-    gsap.to("#floating-label", { duration: .5, y: "-1.5rem", ease: "back.out(3)" });
+  const onFocus = (e)=> {
+    gsap.to(`#floating-label-${e.target.id}`, { duration: .5, y: "-1.5rem", ease: "back.out(3)" });
   }
 
-  const onBlur = ()=> {
+  const onBlur = (e)=> {
     if(!value){
-      gsap.to("#floating-label", { duration: .5, y: 0, fontSize: '1rem' });
+      gsap.to(`#floating-label-${e.target.id}`, { duration: .5, y: 0, fontSize: '1rem' });
     }
   }
 
   return(
-    <Label primary={props.primary} htmlFor={props.id}>
-      <FloatingLabel id="floating-label">
+    <Label primary={props.primary} gray={props.gray} htmlFor={props.id}>
+      <FloatingLabel id={`floating-label-${props.id}`}>
         {props.label}
       </FloatingLabel>
       <Input
