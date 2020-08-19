@@ -374,7 +374,7 @@ export default {
           firstName: "Adrian",
           lastName: "Carcamo",
           description: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
-          avatar: "team-member-1.jpg",
+          avatar: "/team-member-1.jpg",
           email:"acarcamo@clasihome.cl",
           phone: "+56 9 5555 5555"
         },
@@ -383,7 +383,7 @@ export default {
           firstName: "Roberto",
           lastName: "Gajardo",
           description: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
-          avatar: "team-member-2.jpg",
+          avatar: "/team-member-2.jpg",
           email:"rgajardo@clasihome.cl",
           phone: "+56 9 5555 5555"
         },
@@ -392,7 +392,7 @@ export default {
           firstName: "Juan",
           lastName: "Llopis",
           description: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
-          avatar: "team-member-3.jpg",
+          avatar: "/team-member-3.jpg",
           email:"jllopis@clasihome.cl",
           phone: "+56 9 5555 5555"
         },
@@ -401,7 +401,7 @@ export default {
           firstName: "Romulo",
           lastName: "Ricondo",
           description: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades.  ",
-          avatar: "team-member-4.jpg",
+          avatar: "/team-member-4.jpg",
           email:"rricondo@clasihome.cl",
           phone: "+56 9 5555 5555"
         },                        

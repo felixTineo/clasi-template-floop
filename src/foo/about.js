@@ -8,6 +8,7 @@ import Team from '../_sections/about/team';
 import Ubication from '../_sections/about/ubication';
 
 export default ()=> {
+
   return(
     <Layout>
       <Hero />

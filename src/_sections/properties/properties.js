@@ -73,7 +73,6 @@ export default ()=> {
     const url = 'http://52.38.140.134:4000/';
     const res = await fetch(url, options);
     const result = await res.json();
-    console.log(result);
   }
 
   useEffect(()=>{

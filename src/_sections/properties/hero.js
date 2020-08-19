@@ -37,7 +37,6 @@ export default ()=> {
   const [filter, setFilter] = useState(false);
   return(
     <SectionCont>
-      {console.log(filter)}
       <Container>
         <h1>Propiedades</h1>
       </Container>

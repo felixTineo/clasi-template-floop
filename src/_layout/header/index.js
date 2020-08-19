@@ -189,12 +189,12 @@ export default ({ props })=> {
                 </NavLink>
               </DesktopNavOption>
               <DesktopNavOption>
-                <NavLink href="/news">
+                <NavLink href="#news">
                   Noticias
                 </NavLink>
               </DesktopNavOption>
               <DesktopNavOption>
-                <NavLink href="/contact">
+                <NavLink href="#contact">
                   Contacto
                 </NavLink>
               </DesktopNavOption>

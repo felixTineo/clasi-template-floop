@@ -47,7 +47,6 @@ export default ({ onClick, visible })=> {
 
   return(
     <Button onClick={onClick}>
-      {console.log(visible)}
       <BarsCont>
         <Bar id="responsive-bar-top" />
         <Bar id="responsive-bar-middle" />

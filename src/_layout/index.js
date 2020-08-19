@@ -20,12 +20,12 @@ const Body = styled.div`
 
 export default ({ children })=> {
 
-  useEffect(()=>{
-    /*const favicon = document.getElementById('favicon');
+  /*useEffect(()=>{
+    const favicon = document.getElementById('favicon');
     document.title = data.webOffice.office.title;
-    favicon.href = data.webOffice.office.favicon;*/
-  },[])
-  console.log("DATA", data);
+    favicon.href = data.webOffice.office.favicon;
+  },[])*/
+  
   return(
     <OfficeContext.Provider value={data}>
       <ThemeProvider theme={data}>
