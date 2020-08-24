@@ -85,7 +85,7 @@ export default ()=> {
         <Row>
           {
             properties.slice(0, 12).map(p => (
-              <Col key={p.mainImage} xs={12} md={4} style={{ margin: "1rem 0" }}>
+              <Col key={p.mainImage} xs={12} md={3} style={{ margin: "1rem 0" }}>
                 <Card {...p} />
               </Col>
             ))

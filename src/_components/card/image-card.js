@@ -10,7 +10,7 @@ const CardCont = styled.div`
   //justify-content: center;
   align-items: center;
   border: 1px solid #EBEBEB;
-  height: 652px;
+  height: 550px;
 `
 const CardImage = styled.div`
   background-image: url(${props => props.src});

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 const CardCont = styled.div`
   background-color: #fff;
@@ -35,6 +36,7 @@ const CardDate = styled.span`
 export default ({ image, title, tag, date })=>{
 
   return(
+    <Link to="/new" style={{ textDecoration: "none" }} title="Saber más">
     <CardCont>
       <CardImage src={image} alt={title} />
       <CardDescription>
@@ -49,5 +51,6 @@ export default ({ image, title, tag, date })=>{
         </CardDate>
       </CardDescription>
     </CardCont>
+    </Link>
   )
 }

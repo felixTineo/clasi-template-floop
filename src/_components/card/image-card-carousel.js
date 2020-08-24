@@ -76,8 +76,8 @@ const DotsCont = styled.ul`
 `
 const settings = {
   infinite: true,
-  slidesToShow: 3,
-  slidesToScroll: 3,
+  slidesToShow: 4,
+  slidesToScroll: 4,
   autoplay: true,
   speed: 2000,
   autoplaySpeed: 5000,
