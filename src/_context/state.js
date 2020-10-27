@@ -39,9 +39,10 @@ export default {
     },
     properties:{
       visible: true,
-      title: "Contamos con una seleción exclusiva de propiedades.",
+      title: "Contamos con una selección exclusiva de propiedades.",
       footer: "Estas son solo algunas de las propiedades que tenemos para ofrecerte",
       buttonText: "Ver más",
+      bannerImage:"/banner.jpg",
       items:[
         {
           id: uuid(),
