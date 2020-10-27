@@ -4,6 +4,7 @@ import OfficeContext from '../../_context/office-context';
 import { TextCardCarousel } from '../../_components/card'
 import { Container, Row, Col } from 'react-grid-system';
 import { Button } from '../../_components/buttons';
+import { navigate } from 'gatsby';
 
 const MainSection = styled.section`
   min-height: 100vh;
@@ -74,7 +75,7 @@ export default ()=> {
           <BannerSubTitle>
             {info.subTitle}
           </BannerSubTitle>
-          <Button outlined style={{ width: "20%", marginBottom: 16 }}>
+          <Button outlined style={{ width: "20%", marginBottom: 16 }} onClick={()=> navigate("/about")}>
             {info.buttonText}
           </Button>
         </BannerCont>

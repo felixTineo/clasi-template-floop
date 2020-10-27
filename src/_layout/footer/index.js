@@ -4,6 +4,7 @@ import OfficeContext from '../../_context/office-context';
 import { Container, Row, Col, Visible } from 'react-grid-system';
 import { Button } from '../../_components/buttons';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 const Footer = styled.footer`
   
@@ -48,7 +49,7 @@ const NavCont = styled.div`
     margin: 0;
   }      
 `
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   color: #212121;
   transition: 250ms ease;
   text-decoration: none;
@@ -132,24 +133,24 @@ export default ()=> {
               <NavCont>
                 <Row>
                   <Col xs={6} md={4}>
-                    <NavLink href="#about">
+                    <NavLink to="/about">
                       Nosotros
                     </NavLink>
                   </Col>
                   <Col xs={6} md={4}>
-                    <NavLink href="#properties">
+                    <NavLink to="/properties">
                       Propiedades
                     </NavLink>                  
                   </Col>
                   <Visible xs={true} md={false}>
                     <Col xs={6} md={3}>
-                      <NavLink href="#news">
+                      <NavLink to="/news">  
                         Noticias
                       </NavLink>                  
                     </Col>
                   </Visible>
                   <Col xs={6} md={4}>
-                    <NavLink href="#contact">
+                    <NavLink to="/contact">
                       Contacto
                     </NavLink>                  
                   </Col>                                          

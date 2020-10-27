@@ -23,7 +23,7 @@ export default {
     },      
   },
   main:{
-    primaryColor: "#FFB630",
+    primaryColor: "#FFA600",
     secondaryColor: "#ffffff",
     favicon: "",
     logo:{
@@ -41,8 +41,8 @@ export default {
       visible: true,
       title: "Contamos con una selección exclusiva de propiedades.",
       footer: "Estas son solo algunas de las propiedades que tenemos para ofrecerte",
+      bannerImage: "",
       buttonText: "Ver más",
-      bannerImage:"/banner.jpg",
       items:[
         {
           id: uuid(),
@@ -339,7 +339,7 @@ export default {
         visible: true,
         image: '/about-description.jpg',
         title: "Somos una empresa con mas de 20 años en el rubro del corretaje inmobiliario",
-        subTitle: "Esto nos permite entender mejor que nadie las necesidades de nuestros clientes, por eso ponemos el foco en que la experiencia de compra o arriendo sea única",
+        subTitle: "Esto nos permite entender mejor que nadie las necesidades de nuestros clientes, por eso ponemos el foco en que la experienca de compra o arriendo sea única",
         buttonText: "Conózcanos",
       },
     },
@@ -404,7 +404,7 @@ export default {
   about:{
     hero:{
       visible: true,
-      title: "Un equipo de profesionales especializado en el sector inmobiliario.",
+      title: "Un equipo de profesionales especializados en el sector inmobiliario.",
       background: '/about-hero.jpg',
     },
     history:{
@@ -506,7 +506,7 @@ export default {
     },
     ubication:{
       visible: true,
-      title: "Encuentrenos en Sucursal Chicureo Camino a Chicureo 2 km. esquina Los Ingleses Colina - Santiago",
+      title: "Encuéntranos en Sucursal Chicureo Camino a Chicureo 2 km. esquina Los Ingleses Colina - Santiago",
       location:{
         coordinates:["0", "0"],
       }

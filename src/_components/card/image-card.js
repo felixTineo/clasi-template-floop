@@ -71,7 +71,7 @@ export default ({
       <CardInfo>
         <CardTitleCont>
           <CardTitle>{title}</CardTitle>
-          <CardPrice>UF ${value}</CardPrice>
+          <CardPrice>UF {value}</CardPrice>
           <li>
             <CardOperation>Venta - </CardOperation>
             <span>cod {code}</span>
