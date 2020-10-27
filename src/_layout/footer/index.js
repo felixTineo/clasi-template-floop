@@ -121,7 +121,7 @@ export default ()=> {
                   {office.address}
                 </OfficeInfo>
                 <OfficeInfo>
-                  {`(${office.phone.countryCode}-${office.phone.areaCode}) ${office.phone.phoneNumber} / (${office.mobile.countryCode}-${office.mobile.areaCode}) ${office.mobile.phoneNumber}`}
+                  {`${office.phone.countryCode} ${office.phone.areaCode} ${office.phone.phoneNumber} / ${office.mobile.countryCode} ${office.mobile.areaCode} ${office.mobile.phoneNumber}`}
                 </OfficeInfo>
                 <OfficeInfo>
                   {office.email}
@@ -194,7 +194,7 @@ export default ()=> {
         <Container>
           <FooterRights>
             <li>2020 © Todos los derechos reservados</li>
-            <li>Desarrollado por <a href="https://www.clasihome.cl">Clasihome</a></li>
+            <li>Desarrollado por <a href="https://clasihome.com/" target="_blank">Clasihome</a></li>
           </FooterRights>
         </Container>
       </FooterRightsCont>

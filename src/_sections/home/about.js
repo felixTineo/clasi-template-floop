@@ -8,7 +8,7 @@ import { Button } from '../../_components/buttons';
 const MainSection = styled.section`
   min-height: 100vh;
   position: relative;
-  padding-bottom: 4rem;
+  padding: 4rem 0;
   background-color: #fff;
   &::before{
     content: " ";
@@ -20,76 +20,29 @@ const MainSection = styled.section`
     background-color: #F2F2F2;
   }
 `
-const InnerContainer = styled.div`
-  height: 100vh;
-  @media(min-width: 768px){
-    height: 85vh;
-  }
-`;
-const ServiceInfo = styled.div`
-  position: relative; 
-  margin-top: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`
-const InfoCont = styled.div`
-  width: 100%;
-  padding: 1rem;
-  position: absolute;
-  z-index: 1;
+const BannerCont = styled.div`
+  background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${props => props.theme.home.about.banner.image});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 80vh;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media(min-width: 768px){
-    width: 50%;
-  }    
 `
-const Info = styled.h1`
-  color: #fff;
-  font-family: "open sans";
+const BannerTitle = styled.h2`
+  font-size: 50px;
   font-weight: 300;
-  font-size: 1.5rem;
-  text-align: center;
-  width: 100%;
-  margin: 0;
-  @media(min-width: 768px){
-    font-size: 3rem;
-  }
-`
-const SubInfo = styled.p`
-  color: #fff;
-  text-align: center;
-  margin-bottom: 2rem;
-`;
-
-const ButtonCont = styled.div`
   width: 50%;
+  text-align: center;
+  margin: .5rem;
 `
-
-const ServiceImage = styled.div`
-  position: relative;
-  background-image: url(${props => props.theme.home.about.banner.image});
-  background-position: center;
-  background-size: cover;
-  background-repeat: none;
-  width: 100%;
-  padding-top: 100vh;
-  z-index: 0;
-  &::before{
-    content: " ";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, .5),rgba(0, 0, 0, .5)), linear-gradient(rgba(0, 0, 0, .5),rgba(0, 0, 0, .5));
-  }  
-  @media(min-width: 768px){
-    padding-top: 56.25%;
-  }
+const BannerSubTitle = styled.p`
+  width: 50%;
+  text-align: center;
+  margin-bottom: 4rem;
 `
 const SubTitleCont = styled.div`
   display: flex;
@@ -114,18 +67,17 @@ export default ()=> {
   return(
     <MainSection>
       <Container>
-        <InnerContainer>
-        <ServiceInfo>
-          <ServiceImage />
-          <InfoCont>
-            <Info>{info.title}</Info>
-            <SubInfo>{info.subTitle}</SubInfo>
-            <ButtonCont>
-              <Button block outlined>{info.buttonText}</Button>
-            </ButtonCont>
-          </InfoCont>
-        </ServiceInfo>
-        </InnerContainer>
+        <BannerCont>
+          <BannerTitle>
+            {info.title}
+          </BannerTitle>
+          <BannerSubTitle>
+            {info.subTitle}
+          </BannerSubTitle>
+          <Button outlined style={{ width: "20%", marginBottom: 16 }}>
+            {info.buttonText}
+          </Button>
+        </BannerCont>
         <SubTitleCont>
           <SubTitle>
             Ofrecemos un <Strong>servicio profesional</Strong> a las necesidades de cada cliente

@@ -4,9 +4,9 @@ import { Row, Col, Visible } from 'react-grid-system';
 import InteractionButtons from '../interaction-buttons';
 
 const MainCont = styled.div`
-  padding: 2rem 4rem;
+  padding: 0 4rem;
   background-color: #fff;
-  min-height: 570px;
+  //min-height: 570px;
 `
 const OperationCode = styled.p`
   color: ${props => props.theme.main.primaryColor};

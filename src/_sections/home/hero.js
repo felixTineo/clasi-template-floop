@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
 import OfficeContext from '../../_context/office-context';
@@ -63,11 +63,15 @@ const SearchForm = styled.form`
    margin-top: 5rem;
   } 
 `
+const StyledButton = styled(Button)`
+  color: ${props => props.active ? "#4E4B46" : "#fff"};
+  background-color: ${props => props.active ? "#fff" : "transparent"};
+`
 
 export default ()=> {
   const hero = useContext(OfficeContext).home.hero;
   const size = useWindowSize();
-
+  const [byCode, setByCode] = useState(false);
   return(
     <HeroCont>
       <HeroImg />
@@ -79,15 +83,29 @@ export default ()=> {
           <ButtonsCont>
             <Row>
               <Col xs={6}>
-                <Button outlined block>Buscar propiedad</Button>
+                <StyledButton
+                  outlined
+                  block
+                  active={!byCode}
+                  onClick={()=> setByCode(false)}
+                >
+                    Buscar propiedad
+                </StyledButton>
               </Col>
               <Col xs={6}>
-                <Button outlined block>Buscar por código</Button>
+                <StyledButton
+                  outlined
+                  block
+                  active={byCode}
+                  onClick={()=> setByCode(true)}
+                >
+                  Buscar por código
+                </StyledButton>
               </Col>              
             </Row>
           </ButtonsCont>
           <SearchForm>
-            <Row>
+            <Row align="center">
               <Col xs={12} md={3}>
                 <Input label="Operación" id="operation" />
               </Col>

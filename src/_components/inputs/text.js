@@ -11,7 +11,7 @@ const Label = styled.label`
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-top: 1rem;
+  padding-top: 15px;
   margin-left: .3rem;
   margin-bottom: 1rem;
 `

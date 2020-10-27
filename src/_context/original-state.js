@@ -9,8 +9,8 @@ export default {
   office: {
     id: "5e8e36b31c9d440000d35090",
     name: "ClasiHome",
-    email: "clasi@clasihome.cl",
-    address: "Aquí el texto de tu empres",
+    email: "tucorreo@example.com",
+    address: "Su ubicación - dirección.",
     phone: {
       countryCode: "+56",
       areaCode: "2",
@@ -23,25 +23,25 @@ export default {
     },      
   },
   main:{
-    primaryColor: "#FFB630",
+    primaryColor: "#FFA600",
     secondaryColor: "#ffffff",
     favicon: "",
     logo:{
       isImage: true,
-      value: "/logo.svg",
+      value: "/logo.png",
     },
   },
   home:{
     hero:{
       visible: true,
-      title: "Tenemos propiedades esclusivas pensadas para ti.",
+      title: "Somos lo mejor en el mercado inmobiliario",
       background: "/hero.jpg",
     },
     properties:{
       visible: true,
       title: "Contamos con una seleción exclusiva de propiedades.",
       footer: "Estas son solo algunas de las propiedades que tenemos para ofrecerte",
-      buttonText: "Ver más",
+      buttonText: "Ver todas las propiedades",
       items:[
         {
           id: uuid(),
@@ -234,109 +234,13 @@ export default {
               value: 1000
             },
           ]
-        },   
-        {
-          id: uuid(),
-          mainImage: '/property-1.png',
-          title: "Casa en lo Barnechea",
-          currency: 'UF',
-          value: 75000,
-          operation: "Venta",
-          code: "345678",
-          ubication:{
-            address: "Valle del Monasterio / manquele oriente",
-          },
-          characteristics:[
-            {
-              id: "5f0591b437096b0008b019d5",
-              name: "Habitaciones",
-              value: 4
-            },
-            {
-              id: "5f0591b437096b0008b019d5",
-              name: "Sup. Total",
-              value: 1000
-            },
-          ]
-        },
-        {
-          id: uuid(),
-          mainImage: '/property-2.png',
-          title: "Casa en Vitcura",
-          currency: 'UF',
-          value: 75000,
-          operation: "Venta",
-          code: "345678",
-          ubication:{
-            address: "Lo Curro",
-          },
-          characteristics:[
-            {
-              id: "5f0591b437096b0008b019d5",
-              name: "Habitaciones",
-              value: 8
-            },
-            {
-              id: "5f0591b437096b0008b019d5",
-              name: "Sup. Total",
-              value: 1000
-            },
-          ]
-        },
-        {
-          id: uuid(),
-          mainImage: '/property-3.png',
-          title: "Casa en Las Condes",
-          currency: 'UF',
-          value: 75000,
-          operation: "Venta",
-          code: "345678",
-          ubication:{
-            address: "Malaga",
-          },
-          characteristics:[
-            {
-              id: "5f0591b437096b0008b019d5",
-              name: "Habitaciones",
-              value: 6
-            },
-            {
-              id: "5f0591b437096b0008b019d5",
-              name: "Sup. Total",
-              value: 1000
-            },
-          ]
-        },
-        {
-          id: uuid(),
-          mainImage: '/property-4.png',
-          title: "Casa en lo Barnechea",
-          currency: 'UF',
-          value: 75000,
-          operation: "Venta",
-          code: "345678",
-          ubication:{
-            address: "Rosario / Casorra Alzamona",
-          },
-          characteristics:[
-            {
-              id: "5f0591b437096b0008b019d5",
-              name: "Habitaciones",
-              value: 6
-            },
-            {
-              id: "5f0591b437096b0008b019d5",
-              name: "Sup. Total",
-              value: 1000
-            },
-          ]
-        },                                                                                        
+        },                                              
       ],
     },
     about:{
       banner:{
         visible: true,
-        image: '/about-description.jpg',
+        image: '/service.jpg',
         title: "Somos una empresa con mas de 20 años en el rubro del corretaje inmobiliario",
         subTitle: "Esto nos permite entender mejor que nadie las necesidades de nuestros clientes, por eso ponemos el foco en que la experienca de compra o arriendo sea única",
         buttonText: "Conózcanos",
@@ -382,7 +286,7 @@ export default {
       items:[
         {
           review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate sapien at nisi volutpat dictum. Maecenas vel lorem tellus. Sed sit amet sollicitudin nisi. Sed consectetur eget orci sit amet condimentum.',
-          author:'Cliente 1'
+          author:'Cliente '
         },
         {
           review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate sapien at nisi volutpat dictum. Maecenas vel lorem tellus. Sed sit amet sollicitudin nisi. Sed consectetur eget orci sit amet condimentum.',
@@ -404,7 +308,7 @@ export default {
     hero:{
       visible: true,
       title: "Un equipo de profesionales especializado en el sector inmobiliario.",
-      background: '/about-hero.jpg',
+      background: '/about-background.jpg',
     },
     history:{
       visible: true,

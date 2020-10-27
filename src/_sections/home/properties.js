@@ -46,7 +46,7 @@ export default ()=> {
       <Container>
         <TitleSection>
           <img src="/marker.svg" style={{ marginBottom: "1rem" }} />
-          Contamos con una seleción exclusiva de propiedades.
+          Contamos con una selección exclusiva de propiedades.
         </TitleSection>
         <ImageCardCarousel items={properties} />
       </Container>

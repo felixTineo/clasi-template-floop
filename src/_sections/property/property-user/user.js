@@ -101,14 +101,14 @@ export default ()=> {
               id="message"
             />
           </Col>   
-          <Col xs={12} md={6}>
+          <Col xs={12}>
             <ContactFormButtons>
               <Button primary outlined block>
                 LLamar por teléfono
               </Button>
             </ContactFormButtons>
           </Col>
-          <Col xs={12} md={6}>
+          <Col xs={12}>
             <ContactFormButtons>
               <Button primary outlined block>
                 Enviar whatsapp

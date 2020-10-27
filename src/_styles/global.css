@@ -27,3 +27,6 @@ button{
 a:visited{
   color: #333 !important;
 }
+.slick-slide div{
+  outline: none !important;
+}

@@ -5,7 +5,6 @@ import InteractionButtons from '../interaction-buttons';
 import Icons from '../../../_icons';
 
 const MainCont = styled.div`
-  padding-top: 4rem;
 `
 const PublicObs = styled.p`
   font-weight: bold;
@@ -55,7 +54,7 @@ export default ({ description })=> {
           </PublicObs>
         </Col>
         <Col xs={12}>
-          <h2 style={{ color: "#002438" }}>Caracteristicas</h2>
+          <h2 style={{ color: "#002438" }}>Características</h2>
           <Row>
             <Col xs={12} md={6}>
               <CharsCont>
