@@ -115,7 +115,7 @@ export default ()=> {
             byCode 
             ?(
               <CodeForm onSubmit={e => e.preventDefault()} className="animate__animated animate__fadeInUp">
-                  <Row>
+                  <Row align="center">
                     <Col xs={12} md={9}>
                       <Input
                         label="Ingrese el código de la propiedad"
@@ -123,12 +123,10 @@ export default ()=> {
                       />
                     </Col>              
                     <Col xs={12} md={3}>
-                    <div style={{ marginTop: size.width > 768 ? 0 : '2rem' }}>
                       <Button primary block>
                         Buscar
                         <img src="/search.svg" style={{ marginLeft: 8 }} />
                       </Button>                
-                    </div>
                   </Col> 
                 </Row>                           
               </CodeForm>
@@ -146,12 +144,10 @@ export default ()=> {
                 <Select default="Comuna" options={["option A", "option B", "option C"]} />
               </Col>
               <Col xs={12} md={3}>
-                <div style={{ marginTop: size.width > 768 ? 0 : '2rem' }}>
                   <Button primary block>
                     Buscar
                     <img src="/search.svg" style={{ marginLeft: 8 }} />
                   </Button>                
-                </div>
               </Col>                                          
             </Row>
           </SearchForm>              
