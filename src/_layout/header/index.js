@@ -195,13 +195,13 @@ export default ({ props })=> {
                   </NavLink>
                 </GatsbyLink>
               </DesktopNavOption>
-              <DesktopNavOption>
+{/*              <DesktopNavOption>
                 <GatsbyLink to="/news" style={{ textDecoration: 'none' }}>
                   <NavLink href="/news">
                     Noticias
                   </NavLink>
                 </GatsbyLink>
-              </DesktopNavOption>
+</DesktopNavOption>*/}
               <DesktopNavOption>
                 <GatsbyLink to="/contact" style={{ textDecoration: 'none' }}>
                   <NavLink href="/contact">

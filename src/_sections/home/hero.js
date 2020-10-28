@@ -63,6 +63,13 @@ const SearchForm = styled.form`
    margin-top: 5rem;
   } 
 `
+const CodeForm = styled.form`
+  width: 70%;
+  margin: 2rem;
+  @media(min-width: 768px){
+   margin-top: 5rem;
+  } 
+`
 const StyledButton = styled(Button)`
   color: ${props => props.active ? "#4E4B46" : "#fff"};
   background-color: ${props => props.active ? "#fff" : "transparent"};
@@ -71,7 +78,7 @@ const StyledButton = styled(Button)`
 export default ()=> {
   const hero = useContext(OfficeContext).home.hero;
   const size = useWindowSize();
-  const [byCode, setByCode] = useState(false);
+  const [byCode, setByCode] = useState(true);
   return(
     <HeroCont>
       <HeroImg />
@@ -104,7 +111,30 @@ export default ()=> {
               </Col>              
             </Row>
           </ButtonsCont>
-          <SearchForm>
+          {
+            byCode 
+            ?(
+              <CodeForm onSubmit={e => e.preventDefault()} className="animate__animated animate__fadeInUp">
+                  <Row>
+                    <Col xs={12} md={9}>
+                      <Input
+                        label="Ingrese el código de la propiedad"
+                        id="operation"
+                      />
+                    </Col>              
+                    <Col xs={12} md={3}>
+                    <div style={{ marginTop: size.width > 768 ? 0 : '2rem' }}>
+                      <Button primary block>
+                        Buscar
+                        <img src="/search.svg" style={{ marginLeft: 8 }} />
+                      </Button>                
+                    </div>
+                  </Col> 
+                </Row>                           
+              </CodeForm>
+            )
+             :(
+          <SearchForm onSubmit={e => e.preventDefault()} className="animate__animated animate__fadeInUp">
             <Row align="center">
               <Col xs={12} md={3}>
                 <Input label="Operación" id="operation" />
@@ -124,7 +154,9 @@ export default ()=> {
                 </div>
               </Col>                                          
             </Row>
-          </SearchForm>
+          </SearchForm>              
+            )
+          }
         </HeroContent>
       </Container>
     </HeroCont>
