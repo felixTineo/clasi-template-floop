@@ -78,7 +78,7 @@ const StyledButton = styled(Button)`
 export default ()=> {
   const hero = useContext(OfficeContext).home.hero;
   const size = useWindowSize();
-  const [byCode, setByCode] = useState(true);
+  const [byCode, setByCode] = useState(false);
   return(
     <HeroCont>
       <HeroImg />
