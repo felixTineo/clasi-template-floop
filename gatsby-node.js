@@ -14,7 +14,7 @@ exports.sourceNodes = async ({
     children: [],
     internal: {
       type: `data`,
-      contentDigest: createContentDigest(resultData),
+      contentDigest: createContentDigest(data),
     },
   })
 }
