@@ -6,9 +6,9 @@ const handleBackground = (props) => {
     return 'transparent';
   } else {
     if(props.primary){
-      return props.theme.main.primaryColor;
+      return props.theme.primaryColor;
     } else{
-      return props.theme.main.secondaryColor;
+      return "#ffffff";
     }
   }
 }
@@ -16,9 +16,9 @@ const handleBackground = (props) => {
 const handleColor = props => {
   if(props.outlined){
     if(props.primary){
-      return props.theme.main.primaryColor;
+      return props.theme.primaryColor;
     } else {
-      return props.theme.main.secondaryColor;
+      return "#ffffff";
     }
   } else {
     if(props.primary){
@@ -41,18 +41,18 @@ export default styled.button`
   height: 47.59px;
   border-style: solid;
   border-radius: ${props => props.noRound ? '0' : '25px'};
-  border-color: ${props => props.primary ? props.theme.main.primaryColor : props.theme.main.secondaryColor};
+  border-color: ${props => props.primary ? props.theme.primaryColor : "#ffffff"};
   transition: background 250ms ease;
   cursor: pointer;
   outline: none !important;
   color: ${props => handleColor(props)};
   &:hover{
     color: ${props => props.primary ? '#fff' : '#212121'};
-    background-color: ${props => props.primary ? hexToHsl(props.theme.main.primaryColor, 58) : props.theme.main.secondaryColor};
-    border-color: ${props => props.primary ? hexToHsl(props.theme.main.primaryColor, 58) : hexToHsl(props.theme.main.secondaryColor, 97)};
+    background-color: ${props => props.primary ? hexToHsl(props.theme.primaryColor, 58) : "#ffffff"};
+    border-color: ${props => props.primary ? hexToHsl(props.theme.primaryColor, 58) : hexToHsl("#ffffff", 97)};
   }
   &:active{
-    background-color: ${props => props.primary ? hexToHsl(props.theme.main.primaryColor, 48) : hexToHsl(props.theme.main.secondaryColor, 97)}
+    background-color: ${props => props.primary ? hexToHsl(props.theme.primaryColor, 48) : hexToHsl("#ffffff", 97)}
   }
   &:disabled{
     background-color: #cfcfcf;

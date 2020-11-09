@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Card = styled.div`
-  background-color: ${props => props.theme.main.primaryColor};
-  color: ${props => props.theme.main.secondaryColor};
+  background-color: ${props => props.theme.primaryColor};
+  color: "#fff";
   height: 257px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #fff;
 `
 const CardTitle = styled.p`
   margin: 0;

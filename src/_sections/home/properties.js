@@ -5,6 +5,7 @@ import OfficeContext from '../../_context/office-context';
 import { ImageCardCarousel } from '../../_components/card'
 import { Container, Row, Col } from 'react-grid-system';
 import { Button } from '../../_components/buttons';
+import test from '../../_context/state'
 
 const MainSection = styled.section`
   min-height: 100vh;
@@ -17,7 +18,7 @@ const MainSection = styled.section`
     left: 0;
     height: 50%;
     width: 100%;
-    background-color: ${props => props.theme.main.primaryColor};
+    background-color: ${props => props.theme.primaryColor};
   }
 `
 const TitleSection = styled.h2`
@@ -26,7 +27,7 @@ const TitleSection = styled.h2`
   display: flex;
   flex-direction: column;
   align-items: center; 
-  color: ${props => props.theme.main.secondaryColor};
+  color: #fff;
   text-align: center;
 `
 const FooterSection = styled.footer`
@@ -39,7 +40,8 @@ const FooterSection = styled.footer`
 `
 
 export default ()=> {
-  const properties = useContext(OfficeContext).home.properties.items;
+  //const properties = useContext(OfficeContext).home.properties.items;
+  const properties = test.home.properties.items;
   return(
     <Fragment>
     <MainSection>

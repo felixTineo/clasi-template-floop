@@ -13,8 +13,8 @@ const MainFooter = styled.div`
   padding: 4rem 0;
 `
 const FooterRightsCont = styled.div`
-  background-color: ${props => props.theme.main.primaryColor};
-  color: ${props => props.theme.main.secondaryColor};
+  background-color: ${props => props.theme.primaryColor};
+  color: ${props => "#ffffff"};
   padding: 2rem 0;
   @media(min-width: 768px){
     padding: .5rem 0;
@@ -59,24 +59,24 @@ const NavLink = styled(Link)`
     text-align: center;
   }
   &:hover{
-    color: ${props => props.theme.main.primaryColor} !important;
+    color: ${props => props.theme.primaryColor} !important;
   }
   &:visited{
     color: #212121;
   }
 `
 const SvgIcon = styled.svg`
-  fill: ${props => props.theme.main.primaryColor};
+  fill: ${props => props.theme.primaryColor};
   margin-right: .5rem;
   ${Button}:hover & {
-    fill: ${props => props.theme.main.secondaryColor};
+    fill: ${props => "#ffffff"};
   }
 `
 const SocialNav = styled.ul`
   padding: 0;
   margin: 0;
   list-style: none;
-  //color: ${props => props.theme.main.primaryColor};
+  //color: ${props => props.theme.primaryColor};
   display: flex;
   align-content: center;
   margin-bottom: 1rem;
@@ -93,7 +93,7 @@ const Logo = styled.img`
 `
 
 const HeaderTitle = styled.h1`
-  color: ${props => props.theme.main.primaryColor};
+  color: ${props => props.theme.primaryColor};
   font-size: 1rem;
   font-weight: bold;
 `
@@ -111,21 +111,21 @@ export default ()=> {
               <GatsbyLink to="/" style={{ textDecoration: 'none' }}>
                 <a href="/">
                     {
-                      state.main.logo.isImage
-                        ?<Logo src={state.main.logo.value} alt="logo" />
-                        :<HeaderTitle>{state.main.logo.value}</HeaderTitle>
+                      state.logo
+                        ?<Logo src={state.logo} alt="logo" />
+                        :<HeaderTitle>{state.email}</HeaderTitle>
                     }
                 </a>
               </GatsbyLink>
               <OfficeInfoCont>
                 <OfficeInfo>
-                  {office.address}
+                  {state.address}
                 </OfficeInfo>
                 <OfficeInfo>
-                  {`${office.phone.countryCode} ${office.phone.areaCode} ${office.phone.phoneNumber} / ${office.mobile.countryCode} ${office.mobile.areaCode} ${office.mobile.phoneNumber}`}
+                  <span>{state.phone}</span>
                 </OfficeInfo>
                 <OfficeInfo>
-                  {office.email}
+                  {state.email}
                 </OfficeInfo>
               </OfficeInfoCont>
             </Col>
@@ -183,7 +183,7 @@ export default ()=> {
                     <SvgIcon width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12.8766 9.1894C12.0195 9.1894 11.1779 9.05534 10.3804 8.79178C9.98958 8.65849 9.50917 8.78077 9.27066 9.02573L7.6965 10.2141C5.87092 9.23956 4.7464 8.11541 3.78521 6.30354L4.93857 4.77039C5.23822 4.47114 5.3457 4.03401 5.21693 3.62385C4.95224 2.82213 4.81779 1.98093 4.81779 1.12343C4.81782 0.503963 4.31386 0 3.69443 0H1.12339C0.503964 0 0 0.503964 0 1.12339C0 8.22365 5.77639 14 12.8766 14C13.4961 14 14 13.496 14 12.8766V10.3127C14 9.69336 13.496 9.1894 12.8766 9.1894Z"/>
                     </SvgIcon>
-                      <span>{`${office.phone.countryCode} ${office.phone.areaCode} ${office.phone.phoneNumber}`}</span>
+                      <span>{state.phone}</span>
                   </Button>                 
                 </Col>              
               </Row>

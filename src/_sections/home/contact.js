@@ -18,14 +18,14 @@ const SectionText = styled.p`
 `
 
 export default ()=> {
-  const sectionText = useContext(OfficeContext).home.contact.title;
+  //const sectionText = useContext(OfficeContext).home.contact.title;
   return(
     <SectionCont>
       <Container>
         <Row align="center">
           <Col xs={12} md={9}>
             <SectionText>
-              {sectionText}
+              ¿Necesitas vender, arrendar o comprar una propiedad? Somos tu socio perfecto.
             </SectionText>          
           </Col>
           <Col xs={12} md={3}>

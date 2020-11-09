@@ -5,6 +5,7 @@ import { TextCardCarousel } from '../../_components/card'
 import { Container, Row, Col } from 'react-grid-system';
 import { Button } from '../../_components/buttons';
 import { navigate } from 'gatsby';
+import noData from '../../_context/state';
 
 const MainSection = styled.section`
   min-height: 100vh;
@@ -22,7 +23,7 @@ const MainSection = styled.section`
   }
 `
 const BannerCont = styled.div`
-  background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${props => props.theme.home.about.banner.image});
+  background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${props => props.theme.home.about.banner.image ? props.theme.home.about.banner.image : "/about-description.jpg"});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -70,13 +71,13 @@ export default ()=> {
       <Container>
         <BannerCont>
           <BannerTitle>
-            {info.title}
+            {info.title ? info.title : noData.home.about.banner.title}
           </BannerTitle>
           <BannerSubTitle>
-            {info.subTitle}
+            {info.subTitle ? info.subTitle : noData.home.about.banner.subTitle}
           </BannerSubTitle>
           <Button outlined style={{ width: "20%", marginBottom: 16 }} onClick={()=> navigate("/about")}>
-            {info.buttonText}
+            {info.buttonText ? info.buttonText : noData.home.about.banner.buttonText}
           </Button>
         </BannerCont>
         <SubTitleCont>
@@ -84,7 +85,7 @@ export default ()=> {
             Ofrecemos un <Strong>servicio profesional</Strong> a las necesidades de cada cliente
           </SubTitle>
         </SubTitleCont>
-        <TextCardCarousel items={services.items} />
+        <TextCardCarousel items={services.items[0].title ? services.items : noData.home.services.items} />
       </Container>
     </MainSection>
   )

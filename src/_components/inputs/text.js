@@ -6,8 +6,8 @@ import { gsap } from 'gsap';
 const Label = styled.label`
   border-bottom-style: solid;
   border-bottom-width: 3px;
-  border-bottom-color: ${props => props.primary ? props.theme.main.primaryColor : props.gray ? "#dadada" : props.theme.main.secondaryColor};
-  color: ${props => props.primary ? props.theme.main.primaryColor : props.gray ? "#a1a1a1" : props.theme.main.secondaryColor};
+  border-bottom-color: ${props => props.primary ? props.theme.primaryColor : props.gray ? "#dadada" : "#fff"};
+  color: ${props => props.primary ? props.theme.primaryColor : props.gray ? "#a1a1a1" : "#fff"};
   display: flex;
   flex-direction: column;
   position: relative;
@@ -28,7 +28,7 @@ const Input = styled.input`
   outline: none;
   font-size: 1rem;
   padding: 0 0 .6rem .3rem;
-  color: ${props => props.primary ? props.theme.main.primaryColor : props.gray ? "#4E4B46" : props.theme.main.secondaryColor};
+  color: ${props => props.primary ? props.theme.primaryColor : props.gray ? "#4E4B46" : "#fff"};
 `
 
 export default (props)=> {

@@ -3,6 +3,7 @@ import OfficeContext from '../../_context/office-context';
 import { QuoteCardCarousel } from '../../_components/card'
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
+import noData from '../../_context/state'
 
 const MainSection = styled.section`
   min-height: 50vh;
@@ -14,7 +15,7 @@ export default ()=> {
   return(
     <Container>
       <MainSection>
-        <QuoteCardCarousel items={reviews.items} />
+        <QuoteCardCarousel items={reviews.items[0].review ? reviews.items : noData.home.reviews.items} />
       </MainSection>
     </Container>
   )

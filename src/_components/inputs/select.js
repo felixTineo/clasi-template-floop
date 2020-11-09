@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const Label = styled.label`
   border-bottom-style: solid;
   border-bottom-width: 3px;
-  border-bottom-color: ${props => props.primary ? props.theme.main.primaryColor : props.theme.main.secondaryColor};
-  color: ${props => props.primary ? props.theme.main.primaryColor : props.theme.main.secondaryColor};
+  border-bottom-color: ${props => props.primary ? props.theme.primaryColor : "#fff"};
+  color: ${props => props.primary ? props.theme.primaryColor : "#fff"};
   display: flex;
   flex-direction: column;
   position: relative;
@@ -21,7 +21,7 @@ const Select = styled.select`
   font-size: 1rem;
   font-family: "Open Sans";
   padding: 0 0 .3rem .3rem;
-  color: ${props => props.primary ? props.theme.main.primaryColor : props.theme.main.secondaryColor};
+  color: ${props => props.primary ? props.theme.primaryColor : "#fff"};
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; 

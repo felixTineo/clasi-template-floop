@@ -5,12 +5,13 @@ import OfficeContext from '../../_context/office-context';
 import { Button } from '../../_components/buttons';
 import { Input, Select } from '../../_components/inputs';
 import { useWindowSize } from '../../_hooks';
+import noData from '../../_context/state';
 
 const HeroCont = styled.div`
   position: relative;
   height: calc(100vh - 67px);
   overflow: hidden;
-  color: ${props => props.theme.main.secondaryColor};
+  color: #fff;
   @media(min-width: 768px){
     height: calc(100vh - 89px);
   }  
@@ -19,7 +20,9 @@ const HeroImg = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url(${props => props.theme.home.hero.background});
+  background-image: url(${props => props.theme.home.hero.background ? props.theme.home.hero.background : '/hero.jpg'});
+  background-position: center;
+  background-size: cover;
   width: 100%;
   height: 100%;
   &::after{
@@ -85,7 +88,7 @@ export default ()=> {
       <Container>
         <HeroContent>
           <HeroTitle>
-            {hero.mainText}
+            {hero.title ?  hero.title : noData.home.hero.title}
           </HeroTitle>
           <ButtonsCont>
             <Row>

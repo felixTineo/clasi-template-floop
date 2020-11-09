@@ -27,7 +27,7 @@ const User = styled.p`
   margin: 5rem 0;
 `
 const MarkQuote = styled.svg`
-  fill: ${props => props.theme.main.primaryColor};
+  fill: ${props => props.theme.primaryColor};
   width: 2rem;
   flex-shrink: 1;
   flex-grow: 0;

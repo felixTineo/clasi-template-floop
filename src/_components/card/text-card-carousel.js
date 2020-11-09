@@ -15,7 +15,7 @@ const CarCont = styled.div`
 `
 
 const PrevArrow = styled.div`
-  background-color: ${props => props.theme.main.primaryColor};
+  background-color: ${props => props.theme.primaryColor};
   left: -32px;
   height: 2.5rem;
   padding-right: .5rem;
@@ -28,9 +28,8 @@ const PrevArrow = styled.div`
   justify-content: flex-end;
   align-items: center;
   transition: 250ms ease;
-  
   &:hover{
-    background-color: ${props => props.theme.main.primaryColor};
+    background-color: ${props => props.theme.primaryColor};
   }
   &::before{
     
@@ -38,7 +37,7 @@ const PrevArrow = styled.div`
 `
 
 const NextArrow = styled.div`
-  background-color: ${props => props.theme.main.primaryColor};
+  background-color: ${props => props.theme.primaryColor};
   right: -32px;
   height: 2.5rem;
   padding-right: .5rem;
@@ -52,7 +51,7 @@ const NextArrow = styled.div`
   align-items: center;
   transition: 250ms ease;  
   &:hover{
-    background-color: ${props => props.theme.main.primaryColor};
+    background-color: ${props => props.theme.primaryColor};
   }
 `
 const settings = {
