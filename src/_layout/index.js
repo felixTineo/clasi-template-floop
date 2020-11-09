@@ -52,7 +52,7 @@ export default ({ children })=> {
     const dataProperties = await fetch(`https://api.clasihome.com/rest/properties?typeId=office&id=${result.office}&status=PUBLICADA`);
     const resultProperties = await dataProperties.json();
     console.log("PROPERTIES", resultProperties);
-    result.home.properties.items = resultProperties.properties;
+    if(result.home) result.home.properties.items = resultProperties.properties;
     setData(result);
   },[]);
 
