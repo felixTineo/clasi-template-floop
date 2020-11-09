@@ -144,7 +144,7 @@ const NavLink = styled.a`
   }
 `
 
-export default ({ props })=> {
+export default ({ builderId })=> {
   const [menu, setMenu] = useState(false);
   const state = useContext(OfficeContext);
   useEffect(()=> {
@@ -175,7 +175,7 @@ export default ({ props })=> {
       </RateCont>              
         <Container>
           <NavCont>
-          <GatsbyLink to="/" style={{ textDecoration: 'none' }}>
+          <GatsbyLink to={`/?id=${builderId}`} style={{ textDecoration: 'none' }}>
               <a href="/">
                   {
                     state.logo
@@ -186,14 +186,14 @@ export default ({ props })=> {
             </GatsbyLink>
             <DesktopNav>
               <DesktopNavOption>
-                <GatsbyLink to="/about" style={{ textDecoration: 'none' }}>
+                <GatsbyLink to={`/about?id=${builderId}`} style={{ textDecoration: 'none' }}>
                   <NavLink href="/about">
                     Nosotros
                   </NavLink>
                 </GatsbyLink>
               </DesktopNavOption>
               <DesktopNavOption>
-                <GatsbyLink to="/properties" style={{ textDecoration: 'none' }}>
+                <GatsbyLink to={`/properties?id=${builderId}`} style={{ textDecoration: 'none' }}>
                   <NavLink href="/properties">
                     Propiedades
                   </NavLink>
@@ -207,7 +207,7 @@ export default ({ props })=> {
                 </GatsbyLink>
 </DesktopNavOption>*/}
               <DesktopNavOption>
-                <GatsbyLink to="/contact" style={{ textDecoration: 'none' }}>
+                <GatsbyLink to={`/contact?id=${builderId}`} style={{ textDecoration: 'none' }}>
                   <NavLink href="/contact">
                     Contacto
                   </NavLink>
@@ -243,22 +243,22 @@ export default ({ props })=> {
           </RateContResponsive>
           <ResponsiveNavUl>
             <li>
-              <GatsbyLink to="/about" style={{ textDecoration: "none" }}>
+              <GatsbyLink to={`/about?id=${builderId}`} style={{ textDecoration: "none" }}>
                 <NavOption>Nosotros</NavOption>
               </GatsbyLink>              
             </li>
             <li>
-              <GatsbyLink to="/properties" style={{ textDecoration: "none" }}>
+              <GatsbyLink to={`/properties?id=${builderId}`} style={{ textDecoration: "none" }}>
                 <NavOption>Propiedades</NavOption>
               </GatsbyLink>              
             </li>
-            <li>
-              <GatsbyLink to="/news" style={{ textDecoration: "none" }}>
+{/*            <li>
+              <GatsbyLink to={`/news?id=${builderId}`} style={{ textDecoration: "none" }}>
                 <NavOption>Noticias</NavOption>
               </GatsbyLink>              
-            </li>
+</li>*/}
             <li>
-              <GatsbyLink to="/contact" style={{ textDecoration: "none" }}>
+              <GatsbyLink to={`/contact?id=${builderId}`} style={{ textDecoration: "none" }}>
                 <NavOption>Contacto</NavOption>
               </GatsbyLink>              
             </li>                                    

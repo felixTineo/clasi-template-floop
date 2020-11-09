@@ -99,7 +99,7 @@ const HeaderTitle = styled.h1`
 `
  
 
-export default ()=> {
+export default ({ builderId })=> {
   const office = useContext(OfficeContext).office;
   const state = useContext(OfficeContext);
   return(
@@ -108,7 +108,7 @@ export default ()=> {
         <Container>
           <Row>
             <Col xs={12} md={4}>
-              <GatsbyLink to="/" style={{ textDecoration: 'none' }}>
+              <GatsbyLink to={`/?id=${builderId}`} style={{ textDecoration: 'none' }}>
                 <a href="/">
                     {
                       state.logo
@@ -133,12 +133,12 @@ export default ()=> {
               <NavCont>
                 <Row>
                   <Col xs={6} md={4}>
-                    <NavLink to="/about">
+                    <NavLink to={`/about?id=${builderId}`}>
                       Nosotros
                     </NavLink>
                   </Col>
                   <Col xs={6} md={4}>
-                    <NavLink to="/properties">
+                    <NavLink to={`/properties?id=${builderId}`}>
                       Propiedades
                     </NavLink>                  
                   </Col>
@@ -150,7 +150,7 @@ export default ()=> {
                     </Col>
                   </Visible>*/}
                   <Col xs={6} md={4}>
-                    <NavLink to="/contact">
+                    <NavLink to={`/contact?id=${builderId}`}>
                       Contacto
                     </NavLink>                  
                   </Col>                                          
