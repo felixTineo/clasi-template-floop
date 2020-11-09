@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Card = styled.div`
   background-color: transparent;
-  color: ${props => props.theme.main.secondaryColor};
+  color: #fff;
   height: 257px;
   width: 100%;
   display: flex;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
 import { ImageCard as Card } from '../../_components/card';
 import OfficeContext from '../../_context/office-context';
+import noData from '../../_context/state';
 
 const query = (officeId)=> `
   query {
@@ -47,21 +48,20 @@ const NavNumber = styled(NavArrow)`
   color: #919191;
   margin: 0 1rem;
   &:hover{
-    color: ${props => props.theme.main.primaryColor};
+    color: ${props => props.theme.primaryColor};
   }
 `
 const SvgCont = styled.svg`
   fill: #919191;
   transition: 250ms ease;
   ${NavArrow}:hover &{
-    fill: ${props => props.theme.main.primaryColor};
+    fill: ${props => props.theme.primaryColor};
   }
 `
 
 export default ()=> {
   const officeId = useContext(OfficeContext).office.officeId;
-  const propertyList = useContext(OfficeContext).home.properties.items;
-  const properties = [...propertyList, ...propertyList];
+  const properties = useContext(OfficeContext).home.properties.items;
   
   const handleQuery = async()=> {
     const options = {
@@ -84,7 +84,7 @@ export default ()=> {
       <div style={{ paddingTop: '5rem' }}>
         <Row>
           {
-            properties.slice(0, 12).map(p => (
+            properties.map(p => (
               <Col key={p.mainImage} xs={12} md={3} style={{ margin: "1rem 0" }}>
                 <Card {...p} />
               </Col>

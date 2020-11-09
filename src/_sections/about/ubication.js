@@ -3,12 +3,13 @@ import Context from '../../_context/office-context';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
 import Contact from '../home/contact';
+import noData from '../../_context/state';
 
 const MainCont = styled.section`
   padding: 4rem 0;
 `
 const Title = styled.p`
-  background-color: ${props => props.theme.main.primaryColor};
+  background-color: ${props => props.theme.primaryColor};
   color: #fff;
   padding: 2rem;
   text-align: center;
@@ -27,7 +28,7 @@ export default ()=> {
   return(
     <MainCont>
       <Title>
-        {state.title}
+        {state.title ? state.title : noData.about.ubication.title}
       </Title>
       <Map src="/map.png" />
       <Container>

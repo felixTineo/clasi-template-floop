@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Context from '../../_context/office-context';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
+import noData from '../../_context/state';
 
 const MainCont = styled.section`
   padding: 4rem 0 0;
@@ -12,7 +13,7 @@ const MainCont = styled.section`
 
 const Title = styled.h2`
   font-size: 50px;
-  color: ${props => props.theme.main.primaryColor};
+  color: ${props => props.theme.primaryColor};
   font-weight: 300;
   margin-bottom: 7rem;
 `
@@ -41,7 +42,7 @@ const Description = styled.p`
   overflow: hidden;
 `
 const ContactCont = styled.ul`
-  color: ${props => props.theme.main.primaryColor};
+  color: ${props => props.theme.primaryColor};
   list-style: none;
   padding: 0;
   margin: 0;
@@ -62,25 +63,50 @@ export default ()=> {
             </Title>
           </Col>
           {
-            state.members.map(m => (
-              <Col xs={12} md={3} key={m.id}>
-                <Card>
-                  <Avatar src={m.avatar} alt={m.lastName} />
-                  <Name>{m.firstName + " " + m.lastName}</Name>
-                  <Description>
-                    {m.description}
-                  </Description>
-                  <ContactCont>
-                    <ContactInfo>
-                      {m.email}
-                    </ContactInfo>
-                    <ContactInfo>
-                      {m.phone}
-                    </ContactInfo>
-                  </ContactCont>
-                </Card>
-              </Col>
-            ))
+            state.items[0].fullName
+            ?(
+              state.items.map(m => (
+                <Col xs={12} md={3} key={m.id}>
+                  <Card>
+                    <Avatar src={m.avatar} alt={m.fullName} />
+                    <Name>{m.fullName}</Name>
+                    <Description>
+                      {m.cv}
+                    </Description>
+                    <ContactCont>
+                      <ContactInfo>
+                        {m.email}
+                      </ContactInfo>
+                      <ContactInfo>
+                        {m.phone}
+                      </ContactInfo>
+                    </ContactCont>
+                  </Card>
+                </Col>
+              ))
+            )
+            :(
+              noData.about.team.members.map(m => (
+                <Col xs={12} md={3} key={m.id}>
+                  <Card>
+                    <Avatar src={m.avatar} alt={m.lastName} />
+                    <Name>{m.firstName + " " + m.lastName}</Name>
+                    <Description>
+                      {m.description}
+                    </Description>
+                    <ContactCont>
+                      <ContactInfo>
+                        {m.email}
+                      </ContactInfo>
+                      <ContactInfo>
+                        {m.phone}
+                      </ContactInfo>
+                    </ContactCont>
+                  </Card>
+                </Col>
+              ))
+            )
+
           }
         </Row>
       </Container>

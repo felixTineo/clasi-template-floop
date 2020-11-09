@@ -11,7 +11,7 @@ const CardCont = styled.div`
   //justify-content: center;
   align-items: center;
   border: 1px solid #EBEBEB;
-  height: 650px;
+  min-height: 600px;
 `
 const CardImage = styled.div`
   background-image: url(${props => props.src});
@@ -24,10 +24,11 @@ const CardImage = styled.div`
 const CardInfo = styled.div`
   padding: 1rem 1rem 1.5rem 1rem;
   width: 100%;
-  height: 100%;
+  //height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-grow: 1;
 `
 const CardTitleCont = styled.ul`
   list-style: none;

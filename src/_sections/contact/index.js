@@ -27,7 +27,7 @@ const ImgCaptcha = styled.img`
 
 `
 const MailSpan = styled.span`
-  color: ${props => props.theme.main.primaryColor};
+  color: ${props => props.theme.primaryColor};
   text-decoration: underline;
 `
 const SubTitleFooter = styled(SubTitle)`

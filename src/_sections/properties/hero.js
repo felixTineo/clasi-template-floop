@@ -19,7 +19,7 @@ const SearchForm = styled.form`
 `
 const FilterForm = styled.form`
   width: 100%;
-  background-color: ${props => props.theme.main.primaryColor};
+  background-color: ${props => props.theme.primaryColor};
   padding: 1.5rem 0;
   @media(min-width: 768px){
    padding: 3rem 0;

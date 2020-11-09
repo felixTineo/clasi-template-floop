@@ -3,7 +3,7 @@ import OfficeContext from '../../_context/office-context';
 import styled from 'styled-components';
 
 const HeroCont = styled.div`
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${props => props.theme.about.hero.background });
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${props => props.theme.about.hero.background ? props.theme.about.hero.background : "/about-hero.jpg" });
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -33,7 +33,7 @@ export default ()=>{
   return(
     <HeroCont>
       <HeroTitle>
-        {state.about.hero.title}
+        {state.about.hero.title ? state.about.hero.title : "Un equipo de profesionales especializados en el sector inmobiliario."}
       </HeroTitle>
     </HeroCont>
   )

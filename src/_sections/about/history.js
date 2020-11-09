@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Row, Container, Col } from 'react-grid-system';
 import OfficeContext from '../../_context/office-context';
+import noData from '../../_context/state';
 
 const MainCont = styled.section`
   padding: 4rem 0;
@@ -15,7 +16,7 @@ const Title = styled.h2`
   }  
 `;
 const SvgCont = styled.svg`
-  fill: ${props => props.theme.main.primaryColor};
+  fill: ${props => props.theme.primaryColor};
 `
 
 export default ()=> {
@@ -40,9 +41,9 @@ export default ()=> {
           </Col>
           <Col xs={12} md={6}>
             <Title>
-              {state.title}
+              {state.title ? state.title : noData.about.history.title}
             </Title>
-            <div dangerouslySetInnerHTML={{ __html: state.description }} />
+            <div dangerouslySetInnerHTML={{ __html: state.description ? state.description : noData.about.history.description }} />
           </Col>
         </Row>
       </Container>
