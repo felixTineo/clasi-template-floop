@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useCallback, useState } from 'react';
+import React, { useLayoutEffect, useCallback, useState, useEffect } from 'react';
 //import { useStaticQuery } from 'gatsby';
 import dataTest from '../_context/state';
 import OfficeContext from '../_context/office-context';
@@ -26,7 +26,7 @@ const Body = styled.div`
 //const propertiesUrl = "https://api.clasihome.com/rest/properties?typeId=office&id=5e8e36b31c9d440000d35090&status=PUBLICADA";
 
 export default ({ children })=> {
-
+  const [builderId, setBuilderId] = useState('');
   /*const gatsbyRepoData = useStaticQuery(graphql`
   {
     data {
@@ -43,6 +43,7 @@ export default ({ children })=> {
     const url = window !== "undefined" ? window.location.href : '';
     const split = url.split("=");
     const builderId = split[split.length - 1];
+    setBuilderId(builderId);
     const dataUrl = `https://api.clasihome.com/rest/builders?builderId=${builderId}`;
 
     const data = await fetch(dataUrl);
