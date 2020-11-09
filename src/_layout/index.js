@@ -22,6 +22,7 @@ const Body = styled.div`
 `
 
 const dataUrl = "https://api.clasihome.com/rest/builders?builderId=5fa577e57cf0c90a603a23cf";
+const propertiesUrl = "https://api.clasihome.com/rest/properties?typeId=office&id=5e8e36b31c9d440000d35090&status=PUBLICADA";
 
 export default ({ children })=> {
 
@@ -39,6 +40,10 @@ export default ({ children })=> {
   const handleData = useCallback(async()=> {
     const data = await fetch(dataUrl);
     const result = await data.json();
+    const dataProperties = await fetch(propertiesUrl);
+    const resultProperties = await dataProperties.json();
+    console.log("PROPERTIES", resultProperties);
+    result.home.properties.items = resultProperties.properties;
     setData(result);
   },[]);
 
@@ -53,8 +58,6 @@ export default ({ children })=> {
   },[])*/
 
   if(!data) return <LoaderScreen />
-
-  console.log(data)
   
   return(
     <OfficeContext.Provider value={data}>

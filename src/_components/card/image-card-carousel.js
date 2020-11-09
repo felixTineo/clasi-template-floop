@@ -76,7 +76,7 @@ const DotsCont = styled.ul`
 `
 const settings = {
   infinite: true,
-  slidesToShow: 4,
+  slidesToShow: 0,
   slidesToScroll: 4,
   autoplay: true,
   speed: 2000,
@@ -98,7 +98,8 @@ const settings = {
 };
 
 export default ({ items })=> {
-    
+    settings.slidesToShow = items.length >= 4 ? 4 : items.length;
+    //settings.slidesToScroll = items.length / 4;
   return (
     <div>
       <Slider {...settings}>

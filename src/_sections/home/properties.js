@@ -40,8 +40,8 @@ const FooterSection = styled.footer`
 `
 
 export default ()=> {
-  //const properties = useContext(OfficeContext).home.properties.items;
-  const properties = test.home.properties.items;
+  const properties = useContext(OfficeContext).home.properties.items;
+  //const properties = test.home.properties.items;
   return(
     <Fragment>
     <MainSection>
@@ -50,7 +50,7 @@ export default ()=> {
           <img src="/marker.svg" style={{ marginBottom: "1rem" }} />
           Contamos con una selección exclusiva de propiedades.
         </TitleSection>
-        <ImageCardCarousel items={properties} />
+        <ImageCardCarousel items={properties.length ? properties : test.home.properties.items } />
       </Container>
     </MainSection>
     <FooterSection>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Button } from '../buttons';
+import truncate from '../../_utils/trucate-string';
 
 const CardCont = styled.div`
   background-color: #fff;
@@ -10,7 +11,7 @@ const CardCont = styled.div`
   //justify-content: center;
   align-items: center;
   border: 1px solid #EBEBEB;
-  height: 550px;
+  height: 650px;
 `
 const CardImage = styled.div`
   background-image: url(${props => props.src});
@@ -70,7 +71,7 @@ export default ({
       <CardImage src={mainImage} />
       <CardInfo>
         <CardTitleCont>
-          <CardTitle>{title}</CardTitle>
+          <CardTitle>{truncate(title, 25)}</CardTitle>
           <CardPrice>UF {value}</CardPrice>
           <li>
             <CardOperation>Venta - </CardOperation>
@@ -78,7 +79,7 @@ export default ({
           </li>
         </CardTitleCont>
         <CardCharacteristics>
-          <CharItem>{ubication.address}</CharItem>
+          <CharItem>{truncate(ubication.address, 50)}</CharItem>
           {
             characteristics.slice(0, 2).map((char, index) => (
               <CharItem key={index}>
