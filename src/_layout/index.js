@@ -27,11 +27,6 @@ const Body = styled.div`
 
 export default ({ children })=> {
 
-  const url = window !== "undefined" ? window.location.href : '';
-  const split = url.split("=");
-  const builderId = split[split.length - 1];
-  const dataUrl = `https://api.clasihome.com/rest/builders?builderId=${builderId}`;
-
   /*const gatsbyRepoData = useStaticQuery(graphql`
   {
     data {
@@ -44,6 +39,12 @@ export default ({ children })=> {
   const [data, setData] = useState(null);
 
   const handleData = useCallback(async()=> {
+    
+    const url = window !== "undefined" ? window.location.href : '';
+    const split = url.split("=");
+    const builderId = split[split.length - 1];
+    const dataUrl = `https://api.clasihome.com/rest/builders?builderId=${builderId}`;
+
     const data = await fetch(dataUrl);
     const result = await data.json();
     console.log("RESULT", result);
