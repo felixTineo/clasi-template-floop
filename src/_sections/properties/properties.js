@@ -1,37 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, Fragment, useState, useReducer } from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
 import { ImageCard as Card } from '../../_components/card';
 import OfficeContext from '../../_context/office-context';
 import noData from '../../_context/state';
+import Hero from './hero';
 
-const query = (officeId)=> `
-  query {
-    paginateProperties(input:{
-      officeId: "${officeId}"
-    }){
-      totalRegisters
-      totalResults
-      page
-      properties{
-        id
-        code
-        operation
-        currency
-        value
-        mainImage
-        title
-        status
-        ubication{ address }
-        characteristics{
-          id
-          name
-          value
-        }
-      }
-    }
-  }
-`
 const NavPaginate = styled.nav`
   display: flex;
   justify-content: center;
@@ -59,27 +33,34 @@ const SvgCont = styled.svg`
   }
 `
 
-export default ()=> {
-  const officeId = useContext(OfficeContext).office.officeId;
-  const properties = useContext(OfficeContext).home.properties.items;
-  
-  const handleQuery = async()=> {
-    const options = {
-      method: 'POST',
-      headers: { "Content-Type": "application/json"  },
-      body: JSON.stringify({ query: query(officeId) }),
-      mode: 'cors',
-    }
-    const url = 'http://52.38.140.134:4000/';
-    const res = await fetch(url, options);
-    const result = await res.json();
-  }
+export default ({ location })=> {
+  const [properties, setProperties] = useState([]);
+  const [search, setSearch] = useReducer((current, next) => ({ ...current, ...next }),{
+    operation: '',
+    propertyType: '',
+    commune: '',
+  });
 
-  useEffect(()=>{
-    //handleQuery();
-  },[]);
+  const state = useContext(OfficeContext).home.properties.items;
+
+  useEffect(()=> {
+    if( location.state && location.state.properties){
+      console.log("PROPERTIES", location.state)
+      setProperties(location.state.properties);
+      setSearch(location.state.search);
+    }else {
+      console.log("PROPERTIES", state)
+      setProperties(state);
+    }
+  },[])
 
   return(
+    <Fragment>
+      <Hero
+        search={search}
+        setSearch={setSearch}
+        setProperties={setProperties}
+      />
     <Container>
       <div style={{ paddingTop: '5rem' }}>
         <Row>
@@ -122,5 +103,6 @@ export default ()=> {
         </Row>
       </div>
     </Container>
+    </Fragment>
   )
 }

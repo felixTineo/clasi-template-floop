@@ -21,7 +21,6 @@ const Body = styled.div`
   }
 `
 
-//const dataUrl = "https://api.clasihome.com/rest/builders?builderId=5e8e36b31c9d440000d35090";
 //const dataUrl = "https://api.clasihome.com/rest/builders?builderId=5fa577e57cf0c90a603a23cf";
 //const propertiesUrl = "https://api.clasihome.com/rest/properties?typeId=office&id=5e8e36b31c9d440000d35090&status=PUBLICADA";
 

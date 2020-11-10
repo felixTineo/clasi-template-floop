@@ -55,10 +55,8 @@ export default styled.button`
     background-color: ${props => props.primary ? hexToHsl(props.theme.primaryColor, 48) : hexToHsl("#ffffff", 97)}
   }
   &:disabled{
-    background-color: #cfcfcf;
-    border-color: #cfcfcf;
-    color: #979797;
     cursor: not-allowed;
+    color: rgba(255, 255, 255, .7);
   }
   @media(min-width: 768px){
     font-size: 1rem;

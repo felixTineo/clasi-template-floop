@@ -14,6 +14,7 @@ const Label = styled.label`
   padding-top: 15px;
   margin-left: .3rem;
   margin-bottom: 1rem;
+  font-weight: bold;
 `
 
 const FloatingLabel = styled.span`
@@ -29,6 +30,7 @@ const Input = styled.input`
   font-size: 1rem;
   padding: 0 0 .6rem .3rem;
   color: ${props => props.primary ? props.theme.primaryColor : props.gray ? "#4E4B46" : "#fff"};
+  font-weight: bold;
 `
 
 export default (props)=> {
