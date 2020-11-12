@@ -7,7 +7,7 @@ import noData from '../../_context/state';
 
 const MainCont = styled.section`
   position: relative;
-  height: 40vh;
+  min-height: 40vh;
   background-image: ${props => `linear-gradient(${hexTorgba(props.theme.primaryColor, .60)},${hexTorgba(props.theme.primaryColor, .60)}),
                                 linear-gradient(${hexTorgba(props.theme.primaryColor, .60)}, ${hexTorgba(props.theme.primaryColor, .60)}),
                                 url(${props.theme.about.description.background})`};
@@ -16,7 +16,7 @@ const MainCont = styled.section`
   background-repeat: no-repeat;  
   @media(min-width: 768px){
     padding: 4rem;
-    height: 50vh;
+    min-height: 50vh;
   }
 `
 

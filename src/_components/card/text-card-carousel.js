@@ -6,9 +6,15 @@ import { hexToHsl } from '../../_utils';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
+const MainCont = styled.div`
+  background-color: ${props => props.theme.primaryColor};
+  padding: 2rem 0;
+`
+
 const CarCont = styled.div`
   margin-right: 0px;
   position: relative;
+  background-color: ${props => props.theme.primaryColor};
   @media(min-width: 768px){
 
   }
@@ -80,7 +86,7 @@ const settings = {
 export default ({ items })=> {
     
   return (
-    <div>
+    <MainCont>
       <Slider {...settings}>
         {
           items.map((item, index) => (
@@ -92,6 +98,6 @@ export default ({ items })=> {
           ))
         }
       </Slider>
-    </div>
+      </MainCont>
   );
 }

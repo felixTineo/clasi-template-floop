@@ -77,7 +77,8 @@ const settings = {
 };
 
 export default ({ items })=> {
-    
+    settings.slidesToShow = items.length;
+    settings.slidesToScroll = items.length;
   return (
     <div>
       <Slider {...settings}>

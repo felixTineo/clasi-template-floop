@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Card = styled.div`
   background-color: transparent;
   color: #fff;
-  height: 257px;
+  min-height: 257px;
   width: 100%;
   display: flex;
   flex-direction: column;

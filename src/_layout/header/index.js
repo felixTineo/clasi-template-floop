@@ -31,8 +31,8 @@ const RateCont = styled.div`
 const Logo = styled.img`
   object-fit: cover;
   object-position: center;
-  width: 104px;
-  height: 31px;
+  width: 60%;
+  //height: 31px;
 `
 
 const HeaderTitle = styled.h1`
