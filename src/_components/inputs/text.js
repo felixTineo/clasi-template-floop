@@ -30,14 +30,11 @@ const Input = styled.input`
   font-size: 1rem;
   padding: 0 0 .6rem .3rem;
   color: ${props => props.primary ? props.theme.primaryColor : props.gray ? "#4E4B46" : "#fff"};
-  font-weight: bold;
 `
 
 export default (props)=> {
-  const [value, setValue] = useState('');
 
   const onChange = e => {
-    setValue(e.target.value);
     if(props.onChange){
       props.onChange(e.target.value);
     }
@@ -48,7 +45,7 @@ export default (props)=> {
   }
 
   const onBlur = (e)=> {
-    if(!value){
+    if(!props.value){
       gsap.to(`#floating-label-${e.target.id}`, { duration: .5, y: 0, fontSize: '1rem' });
     }
   }

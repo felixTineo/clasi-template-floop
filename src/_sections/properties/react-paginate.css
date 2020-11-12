@@ -1,0 +1,29 @@
+.paginateCont{
+
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.paginateCont li{
+  margin-left: 1rem;
+}
+
+.paginateCont li:nth-child(1){
+  margin-left: 0 !important;
+}
+
+.pagination-page{
+  color: #979797;
+  cursor: pointer;
+}
+
+.pagination-page-active{
+  font-weight: bold;
+  color: inherit;
+  cursor: pointer;
+}
+
+.next-button-paginate, .back-button-paginate{
+  cursor: pointer;
+}

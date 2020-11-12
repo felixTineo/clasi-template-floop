@@ -25,12 +25,13 @@ const CharItemLi = styled.li`
   color: #002438;
 `
 
-const CharItem = ({ icon, name }) => {
+const CharItem = ({ icon, name, value }) => {
   const Icon = Icons[icon];
   return(
     <CharItemLi>
       <Icon className="clasi-icon" />
       <span style={{ marginLeft: 16 }}>{name}</span>
+      <span style={{ marginLeft: 16 }}>{value}</span>
     </CharItemLi>
   )
 }
@@ -38,8 +39,10 @@ const CharItem = ({ icon, name }) => {
 
 export default ({ description })=> {
 
-  const charsGeneral = description.characteristics.filter(c => c.type === "GENERAL");
-  const charsOthers = description.characteristics.filter(c => c.type !== "GENERAL");
+  //const charsGeneral = description.characteristics.filter(c => c.type === "GENERAL");
+  //const charsOthers = description.characteristics.filter(c => c.type !== "GENERAL");
+  const charsGeneral = description.characteristics;
+  const charsOthers = [];
   console.log("DESCRIPTION",charsGeneral);
 
   return(

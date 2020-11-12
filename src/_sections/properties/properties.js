@@ -1,10 +1,15 @@
-import React, { useContext, useEffect, Fragment, useState, useReducer } from 'react';
+import React, { useContext, useEffect, Fragment, useState, useReducer, useCallback } from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
 import { ImageCard as Card } from '../../_components/card';
 import OfficeContext from '../../_context/office-context';
 import noData from '../../_context/state';
 import Hero from './hero';
+import ReactPaginate from 'react-paginate';
+import './react-paginate.css';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { makeUrlPropertiesFilter as makeUrl } from '../../_utils';
+import { LoadingOutlined, FrownOutlined } from '@ant-design/icons';
 
 const NavPaginate = styled.nav`
   display: flex;
@@ -25,81 +30,122 @@ const NavNumber = styled(NavArrow)`
     color: ${props => props.theme.primaryColor};
   }
 `
-const SvgCont = styled.svg`
-  fill: #919191;
-  transition: 250ms ease;
-  ${NavArrow}:hover &{
-    fill: ${props => props.theme.primaryColor};
-  }
+const StyledRightOutlined = styled(RightOutlined)`
+  color: ${props => props.theme.primaryColor};
+`
+const StyledLeftOutlined = styled(LeftOutlined)`
+  color: ${props => props.theme.primaryColor};
+`
+
+const LoadingCont = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${props => props.theme.primaryColor};
+  font-size: 3rem;
+  min-height: calc(100vh - 108px);
+`
+const NoDataCont = styled.div`
+  height: calc(50vh - 108px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 export default ({ location })=> {
-  const [properties, setProperties] = useState([]);
+  const [paginateProperties, setPaginateProperties] = useState({properties: []});
+  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useReducer((current, next) => ({ ...current, ...next }),{
     operation: '',
     propertyType: '',
     commune: '',
   });
 
-  const state = useContext(OfficeContext).home.properties.items;
+  const state = useContext(OfficeContext).home.properties.paginateProperties;
+  const office = useContext(OfficeContext).office;
 
   useEffect(()=> {
     if( location.state && location.state.properties){
-      console.log("PROPERTIES", location.state)
-      setProperties(location.state.properties);
+      setPaginateProperties(location.state);
       setSearch(location.state.search);
     }else {
-      console.log("PROPERTIES", state)
-      setProperties(state);
+      //state.totalRegistersQuery = 0;
+      //state.properties = [];
+      setPaginateProperties(state);
     }
-  },[])
+  },[]);
+
+  const handlePaginate = useCallback(async(value) =>{
+    try{
+      setLoading(true);
+      const url = makeUrl({ page: value.selected, status: "PUBLICADA", id:office, limit: 6 });
+      const data = await fetch(url);
+      const result = await data.json();
+      setPaginateProperties(result);
+      setLoading(false);
+    }catch(e){
+      console.log(e);
+      setLoading(false);
+    }
+  },[paginateProperties]);
 
   return(
     <Fragment>
       <Hero
         search={search}
         setSearch={setSearch}
-        setProperties={setProperties}
+        setPaginateProperties={setPaginateProperties}
       />
     <Container>
       <div style={{ paddingTop: '5rem' }}>
         <Row>
           {
-            properties.map(p => (
-              <Col key={p.mainImage} xs={12} md={3} style={{ margin: "1rem 0" }}>
+            loading
+            ?(
+              <Col xs={12}>
+                <LoadingCont>
+                  <LoadingOutlined />
+                </LoadingCont>                  
+              </Col>
+            )
+            :paginateProperties.properties.map(p => (
+              <Col key={p.mainImage} xs={12} md={4} style={{ margin: "1rem 0" }}>
                 <Card {...p} />
               </Col>
             ))
           }
           <Col xs={12}>
-            <NavPaginate>
-              <NavArrow>
-                <SvgCont width="8" height="14" fill="none" version="1.1" viewBox="0 0 8 14">
-                  <path d="m0.28783 6.3069 6.0345-6.0196c0.38387-0.38312 1.0062-0.38312 1.3899 0 0.38371 0.38278 0.38371 1.0036 0 1.3863l-5.3396 5.3264 5.3394 5.3262c0.38371 0.383 0.38371 1.0037 0 1.3865-0.38371 0.3829-1.006 0.3829-1.3899 0l-6.0345-6.0197c-0.19186-0.19148-0.28767-0.44217-0.28767-0.69299 0-0.25094 0.096005-0.50181 0.28783-0.6932z"/>                  
-                </SvgCont>
-              </NavArrow>
-              <NavNumber>
-                1
-              </NavNumber>
-              <NavNumber>
-                2
-              </NavNumber>
-              <NavNumber>
-                3
-              </NavNumber>
-              <NavNumber>
-                4
-              </NavNumber>
-              <NavNumber>
-                5
-              </NavNumber>
-              <NavArrow>
-                <SvgCont width="8" height="14" fill="none" version="1.1" viewBox="0 0 8 14">
-                  <path d="m7.7122 7.6931-6.0345 6.0196c-0.38387 0.3831-1.0062 0.3831-1.3899 0-0.38371-0.3828-0.38371-1.0036 0-1.3864l5.3396-5.3264-5.3394-5.3262c-0.38371-0.38293-0.38371-1.0037 0-1.3865 0.38371-0.38293 1.0061-0.38293 1.3899 0l6.0345 6.0197c0.19185 0.19148 0.28767 0.44217 0.28767 0.69299 0 0.25094-0.096 0.50181-0.28783 0.6932z"/>
-                </SvgCont>              
-              </NavArrow>
-            </NavPaginate>
+            {
+              paginateProperties.totalRegistersQuery > 0 && (
+              <NavPaginate>
+                <ReactPaginate
+                  pageCount={paginateProperties.totalRegistersQuery / 6}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={4}
+                  containerClassName="paginateCont"
+                  activeClassName="pagination-page-active"
+                  pageClassName="pagination-page"
+                  previousLabel={<StyledLeftOutlined />}
+                  previousClassName="back-button-paginate"
+                  nextLabel={<StyledRightOutlined />}
+                  nextClassName="next-button-paginate"
+                  onPageChange={handlePaginate}
+                />
+              </NavPaginate>                
+              )
+            }
           </Col>
+          {
+            paginateProperties.totalRegistersQuery === 0 && (
+              <Col xs={12}>
+                <NoDataCont>
+                  <FrownOutlined style={{ fontSize: 36, color: "#979797" }} />
+                  <p>No se encontron propiedades</p>
+                </NoDataCont>
+              </Col>                
+            )
+          }
         </Row>
       </div>
     </Container>

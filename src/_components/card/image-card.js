@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Button } from '../buttons';
 import truncate from '../../_utils/trucate-string';
+import context from '../../_context/office-context';
 
 const CardCont = styled.div`
   background-color: #fff;
@@ -66,7 +67,9 @@ export default ({
   code,
   ubication,
   characteristics,
+  _id,
 })=> {
+  const builderId = useContext(context)._id;
   return(
     <CardCont>
       <CardImage src={mainImage} />
@@ -89,7 +92,7 @@ export default ({
             ))
           }
         </CardCharacteristics>
-        <Link to="/property" style={{ textDecoration: "none" }}>
+        <Link to={`/property?id=${builderId}&propertyId=${_id}`} style={{ textDecoration: "none" }}>
           <Button primary outlined block>
             Ver
           </Button>        

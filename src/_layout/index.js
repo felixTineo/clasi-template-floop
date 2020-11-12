@@ -1,11 +1,11 @@
 import React, { useLayoutEffect, useCallback, useState, useEffect } from 'react';
-//import { useStaticQuery } from 'gatsby';
 import dataTest from '../_context/state';
 import OfficeContext from '../_context/office-context';
 import styled, { ThemeProvider } from 'styled-components';
 import LoaderScreen from '../_components/LoaderScreen';
 import Header from './header';
 import Footer from './footer';
+import { useQueryParam } from "gatsby-query-params";
 import './index.css';
 import "animate.css";
 
@@ -25,39 +25,27 @@ const Body = styled.div`
 //const propertiesUrl = "https://api.clasihome.com/rest/properties?typeId=office&id=5e8e36b31c9d440000d35090&status=PUBLICADA";
 
 export default ({ children })=> {
-  const [builderId, setBuilderId] = useState('');
-  /*const gatsbyRepoData = useStaticQuery(graphql`
-  {
-    data {
-      id
-    }
-  }
-
-`);*/
-
+  const builderId = useQueryParam('id');
   const [data, setData] = useState(null);
-
+  console.log("BUILDER ID",builderId);
   const handleData = useCallback(async()=> {
-    
-    const url = window !== "undefined" ? window.location.href : '';
-    const split = url.split("=");
-    const builderId = split[split.length - 1];
-    setBuilderId(builderId);
     const dataUrl = `https://api.clasihome.com/rest/builders?builderId=${builderId}`;
-
     const data = await fetch(dataUrl);
     const result = await data.json();
     console.log("RESULT", result);
-    const dataProperties = await fetch(`https://api.clasihome.com/rest/properties?typeId=office&id=${result.office}&status=PUBLICADA`);
+    const dataProperties = await fetch(`https://api.clasihome.com/rest/properties?typeId=office&id=${result.office}&status=PUBLICADA&limit=6`);
     const resultProperties = await dataProperties.json();
     console.log("PROPERTIES", resultProperties);
-    if(result.home) result.home.properties.items = resultProperties.properties;
+    if(result.home) {
+      result.home.properties.items = resultProperties.properties;
+      result.home.properties.paginateProperties = resultProperties;
+    };
     setData(result);
-  },[]);
+  },[builderId]);
 
   useLayoutEffect(()=> {
     handleData();
-  },[]);
+  },[builderId]);
 
   /*useEffect(()=>{
     const favicon = document.getElementById('favicon');

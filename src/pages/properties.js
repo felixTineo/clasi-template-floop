@@ -6,8 +6,6 @@ import Reviews from '../_sections/properties/reviews';
 
 export default ({ location })=> (
   <Layout>
-    {console.log("LOCATION PAGE", location)}
-    {/*<Hero />*/}
     <Properties location={location} />
     <Reviews />
   </Layout>

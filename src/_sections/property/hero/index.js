@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
-import Context from '../../../_context/office-context';
 import { Container, Row, Col, Visible } from 'react-grid-system';
 
 import Gallery from './gallery';
@@ -9,8 +8,8 @@ import Description from './description';
 const MainCont = styled.div`
   padding: 4rem 0 0;
 `
-export default ()=> {
-  const state = useContext(Context).singleProperty;
+export default ({ state })=> {
+
   return(
     <MainCont>
       <Container>

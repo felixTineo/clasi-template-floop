@@ -7,7 +7,8 @@ import { Button } from '../../_components/buttons';
 import { useWindowSize } from '../../_hooks';
 import PROPERTY_TYPES from '../../_constants/PROPERTY_TYPE.json';
 import COMMUNES from '../../_constants/CITIES.json';
-import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined, SearchOutlined } from '@ant-design/icons';
+import { makeUrlPropertiesFilter as makeUrl } from '../../_utils';
 
 const SectionCont = styled.div`
   background-color: #fff;
@@ -37,11 +38,19 @@ const ButtonIcon = styled.img`
 `
 
 
-export default ({ search, setSearch, setProperties })=> {
+export default ({ search, setSearch, setPaginateProperties })=> {
   const size = useWindowSize();
   const state = useContext(OfficeContext);
   const [filter, setFilter] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [loadingFilter, setLoadingFilter] = useState(false);
+  const [filters, setFilters] = useReducer((current, next) => ({ ...current, ...next }),{
+    priceMin: "",
+    priceMax: "",
+    bedrooms: "",
+    bathrooms: "",
+    currency: ""
+  });
 
   const handleSearch = useCallback(e => {
     setSearch({ [e.target.id]: e.target.value });    
@@ -51,12 +60,13 @@ export default ({ search, setSearch, setProperties })=> {
     e.preventDefault();
     try{
       setLoading(true);
-      const { operation, propertyType, commune } = search;
-      const data = await fetch(`https://api.clasihome.com/rest/properties?typeId=office&id=${state.office}&operation=${operation}&propertyType=${propertyType}&commune=${commune}&status=PUBLICADA`);
+      const url = makeUrl({ id: state.office, status: "PUBLICADA", ...search, limit: 6 });
+      console.log(url);
+      const data = await fetch(url);
       const result = await data.json();
       setLoading(false);
       console.log("RESULT",result);
-      setProperties(result.properties);
+      setPaginateProperties(result);
     }
     catch(e){
       console.log(e);
@@ -64,9 +74,31 @@ export default ({ search, setSearch, setProperties })=> {
     }
   });
 
+  const handleFilter = useCallback(e => {
+    setFilters({ [e.target.id]: e.target.value });
+  },[]);
+
+  const onSubmitFilter = useCallback(async(e) => {
+    e.preventDefault();
+    try{
+      setLoadingFilter(true);
+      const url = makeUrl({ id: state.office, status: "PUBLICADA", ...filters, ...search, limit: 6 });
+      console.log(url);
+      const data = await fetch(url);
+      const result = await data.json();
+      console.log("RESULT",result);
+      setPaginateProperties(result);
+      setLoadingFilter(false);
+    }catch(e){
+      setLoadingFilter(false);
+      console.log(e);
+    }
+  })
+
   return(
     <SectionCont>
       <Container>
+        {console.log(filters)}
         <h1>Propiedades</h1>
       </Container>
       <SearchForm
@@ -114,7 +146,7 @@ export default ({ search, setSearch, setProperties })=> {
                   {
                     !loading
                     ?(
-                      <img src="/search.svg" style={{ marginLeft: 8 }} />
+                      <SearchOutlined style={{ marginLeft: 8 }} />
                     )
                     :(
                       <LoadingOutlined spin style={{ marginLeft: 8 }}/>
@@ -128,38 +160,67 @@ export default ({ search, setSearch, setProperties })=> {
         </SearchForm>
         {
           filter && (
-            <FilterForm>
+            <FilterForm onSubmit={onSubmitFilter}>
               <Container>
                 <Row>
                   <Col xs={12} md={2}>
-                    <Input label="Desde" />
+                    <Input
+                      label="Desde"
+                      id="priceMin"
+                      value={filters.priceMin}
+                      onChange={handleFilter}                      
+                    />
                   </Col>
                   <Col xs={12} md={2}>
-                    <Input label="/ Hasta" />
+                    <Input
+                      label="Hasta"
+                      id="priceMax"
+                      value={filters.priceMax}
+                      onChange={handleFilter}
+                    />
                   </Col>
                   <Col xs={12} md={2}>
-                    <Select
-                      default="Dormitorios"
-                      options={["option A", "option B", "option C"]}
-                      values={["option A", "option B", "option C"]}
+                    <Input
+                      label="Dormitorios"
+                      id="bedrooms"
+                      value={filters.bedrooms}
+                      onChange={handleFilter}
+                      type="number"
+                      min={0}
+                    />
+                  </Col>
+                  <Col xs={12} md={2}>
+                  <Input
+                      label="Baños"
+                      id="bathrooms"
+                      value={filters.bathrooms}
+                      onChange={handleFilter}
+                      type="number"
+                      min={0}
                     />
                   </Col>
                   <Col xs={12} md={2}>
                     <Select
-                      default="Baños"
-                      options={["option A", "option B", "option C"]}
-                      values={["option A", "option B", "option C"]}
-                    />
-                  </Col>
-                  <Col xs={12} md={2}>
-                    <Select
+                      id="currency"
+                      onChange={handleFilter}
                       default="Divisa"
-                      options={["option A", "option B", "option C"]}
-                      values={["option A", "option B", "option C"]}
+                      options={["CLP", "UF"]}
+                      values={["CLP", "UF"]}
                     />
                   </Col>
                   <Col xs={12} md={2}>
-                    <Button outlined block>Buscar</Button>
+                    <Button outlined block disabled={loadingFilter}>
+                      Buscar
+                      {
+                        !loadingFilter
+                        ?(
+                          <SearchOutlined style={{ marginLeft: 8 }} />
+                        )
+                        :(
+                          <LoadingOutlined spin style={{ marginLeft: 8 }}/>
+                        )
+                      }
+                    </Button>  
                   </Col>                                                                                    
                 </Row>
               </Container>

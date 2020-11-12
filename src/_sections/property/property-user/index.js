@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Context from '../../../_context/office-context';
 import { Container, Row, Col, Hidden } from 'react-grid-system';
+import noData from '../../../_context/state';
 
 import Property from './property';
 import User from './user';
@@ -10,8 +11,8 @@ const MainCont = styled.div`
 
 `
 
-export default ()=> {
-  const state = useContext(Context).singleProperty;
+export default ({ state })=> {
+  
   return(
     <MainCont>
       <Container>

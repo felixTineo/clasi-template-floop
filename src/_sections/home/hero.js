@@ -8,7 +8,7 @@ import { useWindowSize } from '../../_hooks';
 import noData from '../../_context/state';
 import PROPERTY_TYPES from '../../_constants/PROPERTY_TYPE.json';
 import COMMUNES from '../../_constants/CITIES.json';
-import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined, SearchOutlined } from '@ant-design/icons';
 import { navigate } from 'gatsby';
 
 const HeroCont = styled.div`
@@ -103,10 +103,9 @@ export default ()=> {
     try{
       setLoading(true);
       const { operation, propertyType, commune } = search;
-      const data = await fetch(`https://api.clasihome.com/rest/properties?typeId=office&id=${state.office}&operation=${operation}&propertyType=${propertyType}&commune=${commune}&status=PUBLICADA`);
+      const data = await fetch(`https://api.clasihome.com/rest/properties?typeId=office&id=${state.office}&operation=${operation}&propertyType=${propertyType}&commune=${commune}&status=PUBLICADA&limit=6`);
       const result = await data.json();
       setLoading(false);
-      console.log(result);
       navigate(`/properties?id=${state._id}`, { state: { ...result, search } });
     }
     catch(e){
@@ -204,7 +203,7 @@ export default ()=> {
                     {
                       !loading
                       ?(
-                        <img src="/search.svg" style={{ marginLeft: 8 }} />
+                        <SearchOutlined style={{ marginLeft: 8 }} />
                       )
                       :(
                         <LoadingOutlined spin style={{ marginLeft: 8 }}/>

@@ -4,7 +4,7 @@ import { Button } from '../../_components/buttons';
 import styled from 'styled-components';
 
 const SvgCont = styled.svg`
-  fill: ${props => props.theme.main.primaryColor};
+  fill: ${props => props.theme.primaryColor};
   margin-left: .5rem;
   ${Button}:hover & {
     fill: #fff;
