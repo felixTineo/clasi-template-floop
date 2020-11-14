@@ -108,7 +108,7 @@ export default ({ builderId })=> {
         <Container>
           <Row>
             <Col xs={12} md={4}>
-              <GatsbyLink to={`/?id=${builderId}`} style={{ textDecoration: 'none' }}>
+              <GatsbyLink to={`/?builderId=${builderId}`} style={{ textDecoration: 'none' }}>
                 <a href="/">
                     {
                       state.logo
@@ -133,12 +133,12 @@ export default ({ builderId })=> {
               <NavCont>
                 <Row>
                   <Col xs={6} md={4}>
-                    <NavLink to={`/about?id=${builderId}`}>
+                    <NavLink to={`/about?builderId=${builderId}`}>
                       Nosotros
                     </NavLink>
                   </Col>
                   <Col xs={6} md={4}>
-                    <NavLink to={`/properties?id=${builderId}`}>
+                    <NavLink to={`/properties?builderId=${builderId}`}>
                       Propiedades
                     </NavLink>                  
                   </Col>
@@ -150,7 +150,7 @@ export default ({ builderId })=> {
                     </Col>
                   </Visible>*/}
                   <Col xs={6} md={4}>
-                    <NavLink to={`/contact?id=${builderId}`}>
+                    <NavLink to={`/contact?builderId=${builderId}`}>
                       Contacto
                     </NavLink>                  
                   </Col>                                          

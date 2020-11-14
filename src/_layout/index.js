@@ -25,7 +25,7 @@ const Body = styled.div`
 //const propertiesUrl = "https://api.clasihome.com/rest/properties?typeId=office&id=5e8e36b31c9d440000d35090&status=PUBLICADA";
 
 export default ({ children })=> {
-  const builderId = useQueryParam('id');
+  const builderId = useQueryParam('builderId');
   const [data, setData] = useState(null);
   console.log("BUILDER ID",builderId);
   const handleData = useCallback(async()=> {
