@@ -74,7 +74,7 @@ export default ({ location })=> {
       //state.properties = [];
       setPaginateProperties(state);
     }
-  },[]);
+  },[state]);
 
   const handlePaginate = useCallback(async(value) =>{
     try{
