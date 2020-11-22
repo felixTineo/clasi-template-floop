@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import data from '../_context/state';
+//import data from '../_context/state';
 import OfficeContext from '../_context/office-context';
 import styled, { ThemeProvider } from 'styled-components';
 import Header from './header';
 import Footer from './footer';
+import { useLayout } from '../_hooks';
+import LoaderScreen from '../_components/LoaderScreen';
 import './index.css';
 import "animate.css";
 
@@ -20,7 +22,10 @@ const Body = styled.div`
 `
 
 export default ({ children })=> {
+  const { loading, data, error } = useLayout();
 
+  if(loading) return <LoaderScreen />
+  if(error) return <p>error de conexión</p>
   /*useEffect(()=>{
     const favicon = document.getElementById('favicon');
     document.title = data.webOffice.office.title;

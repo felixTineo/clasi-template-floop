@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import context from '../../_context/office-context';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Button } from '../buttons';
+import { truncate } from '../../_util';
 
 const CardCont = styled.div`
   background-color: #fff;
@@ -11,6 +13,10 @@ const CardCont = styled.div`
   align-items: center;
   border: 1px solid #EBEBEB;
   height: 550px;
+  transition: 250ms ease;
+  &:hover{
+    box-shadow: 0px 2px 22px rgba(0, 0, 0, 0.108337);
+  }  
 `
 const CardImage = styled.div`
   background-image: url(${props => props.src});
@@ -39,7 +45,7 @@ const CardTitle = styled.li`
   margin-bottom: .5rem;
 `
 const CardPrice = styled.li`
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.main.primaryColor} !important;
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: .5rem;
@@ -58,6 +64,7 @@ const CharItem = styled.li`
 `
 
 export default ({
+  _id,
   mainImage,
   title,
   value,
@@ -65,12 +72,14 @@ export default ({
   ubication,
   characteristics,
 })=> {
+  const builderId = useContext(context).builderId;
   return(
+    <Link to={`/property?builderId=${builderId}&propertyId=${_id}`} style={{ textDecoration: "none", color: "inherit" }}>
     <CardCont>
       <CardImage src={mainImage} />
       <CardInfo>
         <CardTitleCont>
-          <CardTitle>{title}</CardTitle>
+          <CardTitle>{truncate(title, 30)}</CardTitle>
           <CardPrice>UF {value}</CardPrice>
           <li>
             <CardOperation>Venta - </CardOperation>
@@ -78,7 +87,7 @@ export default ({
           </li>
         </CardTitleCont>
         <CardCharacteristics>
-          <CharItem>{ubication.address}</CharItem>
+          <CharItem>{truncate(ubication.address, 50)}</CharItem>
           {
             characteristics.slice(0, 2).map((char, index) => (
               <CharItem key={index}>
@@ -87,12 +96,8 @@ export default ({
             ))
           }
         </CardCharacteristics>
-        <Link to="/property" style={{ textDecoration: "none" }}>
-          <Button primary outlined block>
-            Ver
-          </Button>        
-        </Link>
       </CardInfo>
     </CardCont>
+    </Link>
   )
 }

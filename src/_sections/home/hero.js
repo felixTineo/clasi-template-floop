@@ -5,6 +5,9 @@ import OfficeContext from '../../_context/office-context';
 import { Button } from '../../_components/buttons';
 import { Input, Select } from '../../_components/inputs';
 import { useWindowSize } from '../../_hooks';
+import PROPERTY_TYPE from '../../_constants/PROPERTY_TYPE.json';
+import COMMUNES from '../../_constants/CITIES.json';
+import { useNavigateForm } from '../../_hooks';
 
 const HeroCont = styled.div`
   position: relative;
@@ -78,7 +81,8 @@ const StyledButton = styled(Button)`
 export default ()=> {
   const hero = useContext(OfficeContext).home.hero;
   const size = useWindowSize();
-  const [byCode, setByCode] = useState(true);
+  const [byCode, setByCode] = useState(false);
+  const { values, onChange, onFinish, setInitial } = useNavigateForm({ propertyType: '', operation: '', commune: '' });
   return(
     <HeroCont>
       <HeroImg />
@@ -134,16 +138,36 @@ export default ()=> {
               </CodeForm>
             )
              :(
-          <SearchForm onSubmit={e => e.preventDefault()} className="animate__animated animate__fadeInUp">
+          <SearchForm onSubmit={e => {e.preventDefault(); onFinish()}} className="animate__animated animate__fadeInUp">
             <Row align="center">
               <Col xs={12} md={3}>
-                <Input label="Operación" id="operation" />
+                <Select
+                  id="operation"
+                  onChange={onChange}
+                  value={values.operation}
+                  default="Operación"
+                  options={["VENTA", "ARRIENDO"]}
+                  capitalize
+                />
               </Col>
               <Col xs={12} md={3}>
-                <Select default="Propiedad" options={["option A", "option B", "option C"]} />
+                <Select
+                  id="propertyType"
+                  onChange={onChange}
+                  value={values.propertyType}
+                  default="Propiedad"
+                  options={PROPERTY_TYPE}
+                  capitalize
+                />
               </Col>
               <Col xs={12} md={3}>
-                <Select default="Comuna" options={["option A", "option B", "option C"]} />
+                <Select
+                  id="commune"
+                  onChange={onChange}
+                  value={values.commune}
+                  default="Comuna"
+                  options={COMMUNES.map(val => val.name)}
+                />
               </Col>
               <Col xs={12} md={3}>
                 <div style={{ marginTop: size.width > 768 ? 0 : '2rem' }}>

@@ -25,12 +25,13 @@ const CharItemLi = styled.li`
   color: #002438;
 `
 
-const CharItem = ({ icon, name }) => {
+const CharItem = ({ icon, name, value }) => {
   const Icon = Icons[icon];
   return(
     <CharItemLi>
       <Icon className="clasi-icon" />
       <span style={{ marginLeft: 16 }}>{name}</span>
+      <span style={{ marginLeft: 16 }}>{value}</span>
     </CharItemLi>
   )
 }
@@ -38,9 +39,9 @@ const CharItem = ({ icon, name }) => {
 
 export default ({ description })=> {
 
-  const charsGeneral = description.characteristics.filter(c => c.type === "GENERAL");
-  const charsOthers = description.characteristics.filter(c => c.type !== "GENERAL");
-  console.log("DESCRIPTION",charsGeneral);
+  //const charsGeneral = description.characteristics.filter(c => c.type === "GENERAL");
+  //const charsOthers = description.characteristics.filter(c => c.type !== "GENERAL");
+  //console.log("DESCRIPTION",charsGeneral);
 
   return(
     <MainCont>
@@ -59,14 +60,15 @@ export default ({ description })=> {
             <Col xs={12} md={6}>
               <CharsCont>
                 {
-                  charsGeneral.slice(0, 7).map((c) => <CharItem key={c.id} {...c} />)
+                  //charsGeneral.slice(0, 7).map((c) => <CharItem key={c.id} {...c} />)
+                  description.characteristics.map((c) => <CharItem key={c.id} {...c} />)
                 }
               </CharsCont>
             </Col>
             <Col xs={12} md={6}>
               <CharsCont>
                 {
-                  charsGeneral.slice(7, charsGeneral.length).map((c) => <CharItem key={c.id} {...c} />)
+                  //charsGeneral.slice(7, charsGeneral.length).map((c) => <CharItem key={c.id} {...c} />)
                 }        
               </CharsCont>      
             </Col>            
@@ -78,14 +80,14 @@ export default ({ description })=> {
             <Col xs={12} md={6}>
               <CharsCont>
                 {
-                  charsOthers.slice(0, 7).map((c) => <CharItem  key={c.id} {...c} />)
+                  //charsOthers.slice(0, 7).map((c) => <CharItem  key={c.id} {...c} />)
                 }
               </CharsCont>
             </Col>
             <Col xs={12} md={6}>
               <CharsCont>
                 {
-                  charsOthers.slice(7, charsOthers.length).map((c) => <CharItem key={c.id} {...c} />)
+                  //charsOthers.slice(7, charsOthers.length).map((c) => <CharItem key={c.id} {...c} />)
                 }        
               </CharsCont>                    
             </Col>            

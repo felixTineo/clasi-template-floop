@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { capitalize } from '../../_util';
+import { v1 as uuid } from 'uuid';
 
 const Label = styled.label`
   border-bottom-style: solid;
@@ -34,9 +36,12 @@ const Select = styled.select`
     background: transparent;
   };
 `
-const DefaultOprion = styled.option`
+const DefaultOption = styled.option`
   color: #212121;
   font-family: "Open Sans";
+`
+const AllOption = styled(DefaultOption)`
+  font-weight: bold;
 `
 const Option = styled.option`
   color: #212121;
@@ -49,12 +54,13 @@ export default (props)=> {
   return(
     <Label primary={props.primary} htmlFor={props.id}>
       <Select
-        defaultChecked="propiedad"
+        defaultChecked={props.default}
         {...props}
       >
-        <DefaultOprion value="">{props.default}</DefaultOprion>
+        <DefaultOption value="" disabled selected hidden>{props.default}</DefaultOption>
+        <AllOption value="">Todo</AllOption>
         {
-          props.options.map((o, index) => <Option key={index}>{o}</Option>)
+          props.options.map((o, index) => <Option value={o} key={uuid()}>{props.capitalize ? capitalize(o): o}</Option>)
         }       
       </Select>
     </Label>

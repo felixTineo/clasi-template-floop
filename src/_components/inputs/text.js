@@ -32,14 +32,15 @@ const Input = styled.input`
 `
 
 export default (props)=> {
-  const [value, setValue] = useState('');
+  /*const [value, setValue] = useState('');
 
   const onChange = e => {
     setValue(e.target.value);
     if(props.onChange){
       props.onChange(e.target.value);
     }
-  }
+  }*/
+  const { value, onChange } = props;
 
   const onFocus = (e)=> {
     gsap.to(`#floating-label-${e.target.id}`, { duration: .5, y: "-1.5rem", ease: "back.out(3)" });

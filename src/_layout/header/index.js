@@ -145,6 +145,8 @@ const NavLink = styled.a`
 export default ({ props })=> {
   const [menu, setMenu] = useState(false);
   const state = useContext(OfficeContext);
+  const builderId = useContext(OfficeContext).builderId;
+  const officeId = useContext(OfficeContext).office.id
   useEffect(()=> {
     if(menu){
       gsap.to("#responsive-nav", { duration: .25, x: "-100%" });
@@ -171,26 +173,24 @@ export default ({ props })=> {
       </RateCont>              
         <Container>
           <NavCont>
-          <GatsbyLink to="/" style={{ textDecoration: 'none' }}>
-              <a href="/">
-                  {
-                    state.main.logo.isImage
-                      ?<Logo src={state.main.logo.value} alt="logo" />
-                      :<HeaderTitle>{state.main.logo.value}</HeaderTitle>
-                  }
-              </a>
+          <GatsbyLink to={`/?builderId=${builderId}`} style={{ textDecoration: 'none' }}>
+            {
+              state.main.logo.isImage
+                ?<Logo src={state.main.logo.value} alt="logo" />
+                :<HeaderTitle>{state.main.logo.value}</HeaderTitle>
+            }
             </GatsbyLink>
             <DesktopNav>
               <DesktopNavOption>
-                <GatsbyLink to="/about" style={{ textDecoration: 'none' }}>
-                  <NavLink href="/about">
+                <GatsbyLink to={`/about?builderId=${builderId}`} style={{ textDecoration: 'none' }}>
+                  <NavLink>
                     Nosotros
                   </NavLink>
                 </GatsbyLink>
               </DesktopNavOption>
               <DesktopNavOption>
-                <GatsbyLink to="/properties" style={{ textDecoration: 'none' }}>
-                  <NavLink href="/properties">
+                <GatsbyLink to={`/properties?builderId=${builderId}&id=${officeId}`} style={{ textDecoration: 'none' }}>
+                  <NavLink>
                     Propiedades
                   </NavLink>
                 </GatsbyLink>
@@ -203,8 +203,8 @@ export default ({ props })=> {
                 </GatsbyLink>
 </DesktopNavOption>*/}
               <DesktopNavOption>
-                <GatsbyLink to="/contact" style={{ textDecoration: 'none' }}>
-                  <NavLink href="/contact">
+                <GatsbyLink to={`/contact?builderId=${builderId}`} style={{ textDecoration: 'none' }}>
+                  <NavLink>
                     Contacto
                   </NavLink>
                 </GatsbyLink>
@@ -214,7 +214,7 @@ export default ({ props })=> {
                   <PhoneIcon width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.8766 9.1894C12.0195 9.1894 11.1779 9.05534 10.3804 8.79178C9.98958 8.65849 9.50917 8.78077 9.27066 9.02573L7.6965 10.2141C5.87092 9.23956 4.7464 8.11541 3.78521 6.30354L4.93857 4.77039C5.23822 4.47114 5.3457 4.03401 5.21693 3.62385C4.95224 2.82213 4.81779 1.98093 4.81779 1.12343C4.81782 0.503963 4.31386 0 3.69443 0H1.12339C0.503964 0 0 0.503964 0 1.12339C0 8.22365 5.77639 14 12.8766 14C13.4961 14 14 13.496 14 12.8766V10.3127C14 9.69336 13.496 9.1894 12.8766 9.1894Z"/>
                   </PhoneIcon>
-                  <span>{` ${state.office.phone.countryCode} ${state.office.phone.areaCode} ${state.office.phone.phoneNumber}`}</span>
+                  <span> {state.office.phone}</span>
                 </Link>
               </DesktopNavOption>                                                        
             </DesktopNav>
@@ -239,29 +239,29 @@ export default ({ props })=> {
           </RateContResponsive>
           <ResponsiveNavUl>
             <li>
-              <GatsbyLink to="/about" style={{ textDecoration: "none" }}>
+              <GatsbyLink to={`/about?builderId=${builderId}`} style={{ textDecoration: "none" }}>
                 <NavOption>Nosotros</NavOption>
               </GatsbyLink>              
             </li>
             <li>
-              <GatsbyLink to="/properties" style={{ textDecoration: "none" }}>
+              <GatsbyLink to={`/properties?builderId=${builderId}&id=${officeId}`} style={{ textDecoration: "none" }}>
                 <NavOption>Propiedades</NavOption>
               </GatsbyLink>              
             </li>
-            <li>
+{/*            <li>
               <GatsbyLink to="/news" style={{ textDecoration: "none" }}>
                 <NavOption>Noticias</NavOption>
               </GatsbyLink>              
-            </li>
+</li>*/}
             <li>
-              <GatsbyLink to="/contact" style={{ textDecoration: "none" }}>
+              <GatsbyLink to={`/contact?builderId=${builderId}`} style={{ textDecoration: "none" }}>
                 <NavOption>Contacto</NavOption>
               </GatsbyLink>              
             </li>                                    
           </ResponsiveNavUl>
           <Button outlined >
             <img src="phone.svg" alt="phone" style={{ marginRight: ".5rem" }} />
-            <span>{` ${state.office.phone.countryCode} ${state.office.phone.areaCode} ${state.office.phone.number}`}</span>
+            <span>{state.office.phone}</span>
           </Button>
           <SocialNav>
             <li>Siguenos en</li>
