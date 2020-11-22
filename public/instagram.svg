@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (1.0+r73+1)"
+   sodipodi:docname="Group 14.svg"
+   id="svg8"
+   version="1.1"
+   fill="none"
+   viewBox="0 0 29 29"
+   height="29"
+   width="29">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg8"
+     inkscape:window-maximized="1"
+     inkscape:window-y="30"
+     inkscape:window-x="0"
+     inkscape:cy="14.5"
+     inkscape:cx="14.5"
+     inkscape:zoom="16.206897"
+     showgrid="false"
+     id="namedview10"
+     inkscape:window-height="837"
+     inkscape:window-width="1440"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <path
+     d="M 14.457031 0 A 14.5 14.5 0 0 0 0 14.5 A 14.5 14.5 0 0 0 14.5 29 A 14.5 14.5 0 0 0 29 14.5 A 14.5 14.5 0 0 0 14.5 0 A 14.5 14.5 0 0 0 14.457031 0 z M 11.541016 6 L 18.191406 6 C 21.251606 6 23.734375 8.4807652 23.734375 11.541016 L 23.734375 18.191406 C 23.734375 21.251606 21.251606 23.734375 18.191406 23.734375 L 11.541016 23.734375 C 8.4807652 23.734375 6 21.251606 6 18.191406 L 6 11.541016 C 6 8.4807652 8.4807652 6 11.541016 6 z M 11.541016 7.6621094 C 9.4018252 7.6621094 7.6621094 9.4018252 7.6621094 11.541016 L 7.6621094 18.191406 C 7.6621094 20.330606 9.4018252 22.072266 11.541016 22.072266 L 18.191406 22.072266 C 20.330606 22.072266 22.072266 20.330606 22.072266 18.191406 L 22.072266 11.541016 C 22.072266 9.4018252 20.330606 7.6621094 18.191406 7.6621094 L 11.541016 7.6621094 z M 14.867188 10.433594 C 17.315587 10.433594 19.300781 12.418787 19.300781 14.867188 C 19.300781 17.315587 17.315587 19.300781 14.867188 19.300781 C 12.418787 19.300781 10.433594 17.315588 10.433594 14.867188 C 10.433594 12.418787 12.418787 10.433594 14.867188 10.433594 z M 14.867188 12.095703 C 13.339887 12.095703 12.095703 13.338687 12.095703 14.867188 C 12.095703 16.394488 13.339887 17.638672 14.867188 17.638672 C 16.394488 17.638672 17.638672 16.394487 17.638672 14.867188 C 17.638672 13.338687 16.394488 12.095703 14.867188 12.095703 z "
+     style="fill:#ffffff"
+     id="circle2" />
+</svg>

@@ -17,6 +17,7 @@ export default ()=> {
 
   const getData = useCallback(async()=>{
     try{
+      if(builderId){
       const data = await fetch(baseUrl);
       const result = await data.json();
       console.log("INITIAL DATA", result);
@@ -25,6 +26,9 @@ export default ()=> {
       result.home.properties.items = propertiesResult.properties;
       console.log("FINAL DATA", result);
       setQuery({ loading: false, data: new Data(result) });
+      }else{
+        throw new Error("No builderId")
+      }
     }
     catch(e){
       console.log(e);
