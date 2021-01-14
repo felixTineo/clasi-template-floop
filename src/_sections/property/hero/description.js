@@ -57,7 +57,7 @@ export default ({ description })=> {
               <EnvironmentFilled />
             </SvgCont>
             <span>
-              {description.ubication.address}
+              {description.ubication.commune}
             </span>
           </UbicationCont>
         </Col>
